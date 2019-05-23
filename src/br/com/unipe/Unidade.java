@@ -6,10 +6,18 @@ public class Unidade {
 	private int id;
 	private String nome;
 	
+	// Constructor
+	public Unidade(int id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
+	
 	// Getters and Setters
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -19,7 +27,4 @@ public class Unidade {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-
 }

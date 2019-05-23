@@ -8,11 +8,20 @@ public class Usuario {
 	private String matricula;
 	private String nome;
 	
+	// Constructor
+	public Usuario(String login, String senha, String matricula, String nome) {
+		super();
+		this.login = login;
+		this.senha = senha;
+		this.matricula = matricula;
+		this.nome = nome;
+	}
+	
 	// Getters and Setters
 	public String getLogin() {
 		return login;
 	}
-	
+
 	public void setLogin(String login) {
 		this.login = login;
 	}

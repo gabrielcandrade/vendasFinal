@@ -11,11 +11,24 @@ public class Produto {
 	private Unidade unidade;
 	private ItemMovimento itemMovimento;
 	
+	// Constructor
+	public Produto(int id, String nome, float precoVenda, int qtde_estoque, Categoria categoria, Unidade unidade,
+			ItemMovimento itemMovimento) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.precoVenda = precoVenda;
+		this.qtde_estoque = qtde_estoque;
+		this.categoria = categoria;
+		this.unidade = unidade;
+		this.itemMovimento = itemMovimento;
+	}
+	
 	// Getters and Setters
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}

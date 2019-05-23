@@ -8,11 +8,20 @@ public class ItemMovimento {
 	private float preco;
 	private Produto produto;
 	
+	// Constructor
+	public ItemMovimento(int id, int quantidade, float preco, Produto produto) {
+		super();
+		this.id = id;
+		this.quantidade = quantidade;
+		this.preco = preco;
+		this.produto = produto;
+	}
+	
 	// Getters and Setters
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
