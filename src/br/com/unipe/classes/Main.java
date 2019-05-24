@@ -20,7 +20,8 @@ public class Main {
 		int id = Integer.parseInt(leitor.nextLine());
 		System.out.println("Digite o nome da categoria: ");
 		String nome = leitor.nextLine();
-		
+
+
 		Categoria categoria = new Categoria(id, nome);
 		
 		FileWriter arquivo;
@@ -55,3 +56,17 @@ public class Main {
 	}
 
 }
+
+
+//try{
+//		String nome;
+//		nome = JOptionPane.showInputDialog(null,"Entre com o nome do arquivo");
+//		BufferedReader br = new BufferedReader(new FileReader(nome));
+//		while(br.ready()){
+//		String linha = br.readLine();
+//		System.out.println(linha);
+//		}
+//		br.close();
+//		}catch(IOException ioe){
+//		ioe.printStackTrace();
+//		}
