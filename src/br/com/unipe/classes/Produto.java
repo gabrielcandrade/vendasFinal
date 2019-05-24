@@ -1,4 +1,4 @@
-package br.com.unipe;
+package br.com.unipe.classes;
 
 public class Produto {
 	
@@ -57,7 +57,7 @@ public class Produto {
 		this.qtde_estoque = qtde_estoque;
 	}
 	
-	public Categoria getCategoria() {
+	public Categoria getCategoria(int id) {
 		return categoria;
 	}
 	

@@ -1,4 +1,4 @@
-package br.com.unipe;
+package br.com.unipe.classes;
 
 public class ItemMovimento {
 	
