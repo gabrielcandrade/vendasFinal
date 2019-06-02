@@ -1,0 +1,5 @@
+1-Danone-3.5-80-Default-Quilo
+2-Claudio-3.65-80-Default-Quilo
+3-Claudio-3.65-70-Default-Quilo
+4-Claudio-9.65-70-Default-Quilo
+5-80-90.0-50-Alimentos-Quilo

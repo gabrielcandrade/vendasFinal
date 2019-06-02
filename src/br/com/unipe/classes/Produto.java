@@ -9,11 +9,9 @@ public class Produto {
 	private int qtde_estoque;
 	private Categoria categoria;
 	private Unidade unidade;
-	private ItemMovimento itemMovimento;
 	
 	// Constructor
-	public Produto(int id, String nome, float precoVenda, int qtde_estoque, Categoria categoria, Unidade unidade,
-			ItemMovimento itemMovimento) {
+	public Produto(int id, String nome, float precoVenda, int qtde_estoque, Categoria categoria, Unidade unidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -21,7 +19,6 @@ public class Produto {
 		this.qtde_estoque = qtde_estoque;
 		this.categoria = categoria;
 		this.unidade = unidade;
-		this.itemMovimento = itemMovimento;
 	}
 	
 	// Getters and Setters
@@ -57,7 +54,7 @@ public class Produto {
 		this.qtde_estoque = qtde_estoque;
 	}
 	
-	public Categoria getCategoria(int id) {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 	
@@ -71,13 +68,5 @@ public class Produto {
 	
 	public void setUnidade(Unidade unidade) {
 		this.unidade = unidade;
-	}
-	
-	public ItemMovimento getItemMovimento() {
-		return itemMovimento;
-	}
-	
-	public void setItemMovimento(ItemMovimento itemMovimento) {
-		this.itemMovimento = itemMovimento;
 	}
 }
