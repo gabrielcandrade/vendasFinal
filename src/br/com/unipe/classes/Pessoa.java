@@ -9,11 +9,9 @@ public class Pessoa {
 	private String telefone;
 	private String celular;
 	private Endereco endereco;
-	private Movimento movimento;
 	
 	// Constructor
-	public Pessoa(int id, String nome, String email, String telefone, String celular, Endereco endereco,
-			Movimento movimento) {
+	public Pessoa(int id, String nome, String email, String telefone, String celular, Endereco endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -21,7 +19,6 @@ public class Pessoa {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.endereco = endereco;
-		this.movimento = movimento;
 	}
 	
 	// Getters and Setters
@@ -71,13 +68,5 @@ public class Pessoa {
 	
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-	
-	public Movimento getMovimento() {
-		return movimento;
-	}
-	
-	public void setMovimento(Movimento movimento) {
-		this.movimento = movimento;
 	}
 }

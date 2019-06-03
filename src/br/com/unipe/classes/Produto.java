@@ -20,7 +20,7 @@ public class Produto {
 		this.categoria = categoria;
 		this.unidade = unidade;
 	}
-	
+
 	// Getters and Setters
 	public int getId() {
 		return id;
