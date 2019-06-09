@@ -973,7 +973,17 @@ public class Main {
 
     public static void alterarClientes() {
 		System.out.print("Qual o id do cliente que voce deseja modificar: ");
-		int idCliente = Integer.parseInt(leitor.nextLine());
+//		int idCliente = Integer.parseInt(leitor.nextLine());
+		
+        String validacaoIdCliente = leitor.nextLine();
+        int idCliente = 0;
+        try{
+        	idCliente = Integer.parseInt(validacaoIdCliente);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite o novo nome do cliente: ");
 		String novoNomeCliente = leitor.nextLine();
@@ -1067,24 +1077,8 @@ public class Main {
 								listaDeCpfs.add(corte[i+12]);
 							}
 						}
-						else {
-							System.out.println("VAI DAR MERDA");
-						}
 					}
 				}
-				System.out.println("ids: " + listaDeIds);
-				System.out.println("nomes: " + listaDeNomes);
-				System.out.println("emails: " + listaDeEmails);
-				System.out.println("telefones: " + listaDeTelefones);
-				System.out.println("celulares: " + listaDeCelulares);
-				System.out.println("ruas: " + listaDeRuas);
-				System.out.println("ceps: " + listaDeCeps);
-				System.out.println("bairros: " + listaDeBairros);
-				System.out.println("numeros: " + listaDeNumero);
-				System.out.println("complementos: " + listaDeComplementos);
-				System.out.println("cidades: " + listaDeCidades);
-				System.out.println("estados: " + listaDeEstados);
-				System.out.println("cpfs: " + listaDeCpfs);
 			}
 			reader.close();
 			
@@ -1128,7 +1122,17 @@ public class Main {
 
     public static void alterarFornecedores() {
 		System.out.print("Qual o id do fornecedor que voce deseja modificar: ");
-		int idFornecedor = Integer.parseInt(leitor.nextLine());
+//		int idFornecedor = Integer.parseInt(leitor.nextLine());
+		
+        String validacaoIdFornecedor = leitor.nextLine();
+        int idFornecedor = 0;
+        try{
+        	idFornecedor = Integer.parseInt(validacaoIdFornecedor);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite o novo nome do fornecedor: ");
 		String novoNomeFornecedor = leitor.nextLine();
@@ -1306,7 +1310,17 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Selecione qual o fornecedor (ID): ");
-    		int idFornecedor = Integer.parseInt(leitor.nextLine());
+//    		int idFornecedor = Integer.parseInt(leitor.nextLine());
+    		
+            String validacaoIdFornecedor = leitor.nextLine();
+            int idFornecedor = 0;
+            try{
+            	idFornecedor = Integer.parseInt(validacaoIdFornecedor);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+            	menu();
+            }
     		
     		try {
     			BufferedReader reader = new BufferedReader(new FileReader("Produto.txt"));
@@ -1323,13 +1337,42 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Selecione o produto (ID): ");
-    		int idProduto = Integer.parseInt(leitor.nextLine());
+//    		int idProduto = Integer.parseInt(leitor.nextLine());
+    		
+            String validacaoIdProduto = leitor.nextLine();
+            int idProduto = 0;
+            try{
+            	idProduto = Integer.parseInt(validacaoIdProduto);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+            	menu();
+            }
     		
     		System.out.print("Digite a quantidade de itens importada: ");
-    		int quantidadeDeItens = Integer.parseInt(leitor.nextLine());
+//    		int quantidadeDeItens = Integer.parseInt(leitor.nextLine());
+    		
+            String validacaoQuantidadeDeItens = leitor.nextLine();
+            int quantidadeDeItens = 0;
+            try{
+            	quantidadeDeItens = Integer.parseInt(validacaoQuantidadeDeItens);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+            	menu();
+            
     		
     		System.out.println("Digite o preco unitario: ");
-    		float precoUnitario = Float.parseFloat(leitor.nextLine());
+//    		float precoUnitario = Float.parseFloat(leitor.nextLine());
+    		
+            String validacaoPrecoUnitario = leitor.nextLine();
+            float precoUnitario = 0;
+            try{
+            	precoUnitario = Integer.parseInt(validacaoPrecoUnitario);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+            	menu();
     		
 			String nomeFornecedor = null;
 			String emailFornecedor = null;
