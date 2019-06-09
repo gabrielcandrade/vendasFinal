@@ -21,12 +21,14 @@ public class Main {
    }
 	
 // System functions
+	// Done
     public static void limpaTela(){
     	for (int i = 0; i < 50; ++i) {
     		System.out.println ();
     	}		
     }
     
+    // Done
     public static void menu() {
         	System.out.println(" ___________________________________________");
         	System.out.println("|                                           |");
@@ -80,6 +82,7 @@ public class Main {
 	        }
         }
 
+    // Done
     public static void menuProdutos() {
     	System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
@@ -150,6 +153,7 @@ public class Main {
 		}
     }
     
+    // Done
     public static void menuPessoa() {    	
 		System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
@@ -177,7 +181,7 @@ public class Main {
         	System.out.println("\n\t\tValor invalido!");
         	menu();
         }
-		
+        
 		switch (opcao) {
 		case 0:
 			limpaTela();
@@ -211,9 +215,21 @@ public class Main {
     }
     
 // Categories functions
+    // Done
 	public static void cadastrarCategoria() {		
 		System.out.print("Digite o nome da categoria: ");
-		String nomeCategoria = leitor.nextLine();
+		
+        String validacaoNomeCategoria = leitor.nextLine();
+        String nomeCategoria = null;
+    	String[] procuraTraco = validacaoNomeCategoria.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		nomeCategoria = validacaoNomeCategoria;
+    	}
 		
 		try {
 			File f = new File("Categoria.txt");
@@ -251,6 +267,7 @@ public class Main {
 		}
 	}
 	
+	// Done
 	public static void alterarCategoria() {
 		listarCategoria();
 		
@@ -267,7 +284,6 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome da Categoria: ");
-//		String novoNomeCategoria = leitor.nextLine();
 		
         String validacaoNovoNomeCategoria = leitor.nextLine();
         String novoNomeCategoria = null;
@@ -278,7 +294,7 @@ public class Main {
         	menu();
     	}
     	else {
-    		novoNomeCategoria = leitor.nextLine();
+    		novoNomeCategoria = validacaoNovoNomeCategoria;
     	}
 		
 		try {
@@ -329,6 +345,7 @@ public class Main {
 	}
 
 	// Todo: Melhorar essa listagem
+	// Done
 	public static void listarCategoria() {
 		System.out.print("=== Todas as categorias serao listadas ===\n\n");
 		try {
@@ -348,7 +365,19 @@ public class Main {
 // Unity functions
 	public static void cadastrarUnidade() {		
 		System.out.print("Digite o nome da unidade: ");
-		String nomeUnidade = leitor.nextLine();
+//		String nomeUnidade = leitor.nextLine();
+		
+        String validacaoNomeUnidade = leitor.nextLine();
+        String nomeUnidade = null;
+    	String[] procuraTraco = validacaoNomeUnidade.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		nomeUnidade = validacaoNomeUnidade;
+    	}
 		
 		try {
 			File f = new File("Unidade.txt");
@@ -389,7 +418,19 @@ public class Main {
 // Products functions
 	public static void cadastrarProduto() {		
 		System.out.print("Digite o nome do produto: ");
-		String nomeProduto = leitor.nextLine();
+//		String nomeProduto = leitor.nextLine();
+		
+        String validacaoNomeProduto = leitor.nextLine();
+        String nomeProduto = null;
+    	String[] procuraTraco = validacaoNomeProduto.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		nomeProduto = validacaoNomeProduto;
+    	}
 		
 		System.out.print("Digite o preco de venda: ");
 
@@ -572,7 +613,19 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome do produto: ");
-		String novoNomeProduto = leitor.nextLine();
+//		String novoNomeProduto = leitor.nextLine();
+		
+        String validacaoNovoNomeProduto = leitor.nextLine();
+        String novoNomeProduto = null;
+    	String[] procuraTraco = validacaoNovoNomeProduto.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNomeProduto = validacaoNovoNomeProduto;
+    	}
 		
 		System.out.print("Digite o novo preco de venda do produto: ");
 //		float novoPrecoVendaProduto = Float.parseFloat(leitor.nextLine());
@@ -706,7 +759,7 @@ public class Main {
 	}
 	
 // Users functions
-	// Blindado
+	// Done
 	public static void autenticacao() {	
 		System.out.println(" ___________________________________________");
 	    System.out.println("|                                           |");
@@ -755,15 +808,63 @@ public class Main {
 		}
 	}
 	
+	// Done
 	public static void cadastrarUsuario() {
 		System.out.print("Digite seu login: ");
-		String login = leitor.nextLine();
+
+        String validacaoLogin = leitor.nextLine();
+        String login = null;
+    	String[] procuraTraco = validacaoLogin.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		login = validacaoLogin;
+    	}
+		
 		System.out.print("Digite sua senha: ");
-		String senha = leitor.nextLine();
+		
+        String validacaoSenha = leitor.nextLine();
+        String senha = null;
+    	String[] procuraTraco2 = validacaoSenha.split("-");
+    	if (procuraTraco2.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		senha = validacaoSenha;
+    	}
+		
 		System.out.print("Digite sua matricula: ");
-		String matricula = leitor.nextLine();
+		
+        String validacaoMatricula = leitor.nextLine();
+        String matricula = null;
+    	String[] procuraTraco3 = validacaoMatricula.split("-");
+    	if (procuraTraco3.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		matricula = validacaoMatricula;
+    	}
+		
 		System.out.print("Digite seu nome: ");
-		String nome = leitor.nextLine();
+		
+        String validacaoNome = leitor.nextLine();
+        String nome = null;
+    	String[] procuraTraco4 = validacaoNome.split("-");
+    	if (procuraTraco4.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		nome = validacaoNome;
+    	}
 		
 		try {
 			BufferedWriter creater = new BufferedWriter(new FileWriter("Usuario.txt", true));
@@ -789,43 +890,176 @@ public class Main {
 	}
 
 // Person functions
+	// Done
     public static void cadastrarPessoa() {
     	Pessoa pessoa = null;
     	
     	System.out.println("=== Dados Pessoais ===\n\n");
     	System.out.print("Digite o seu nome: ");
-    	String nomePessoa = leitor.nextLine();
+//    	String nomePessoa = leitor.nextLine();
+    	
+        String validacaoNomePessoa = leitor.nextLine();
+        String nomePessoa = null;
+    	String[] procuraTraco = validacaoNomePessoa.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		nomePessoa = validacaoNomePessoa;
+    	}
     	
     	System.out.print("Digite o seu email: ");
-    	String emailPessoa = leitor.nextLine();
+//    	String emailPessoa = leitor.nextLine();
+    	
+        String validacaoEmailPessoa = leitor.nextLine();
+        String emailPessoa = null;
+    	String[] procuraTraco2 = validacaoEmailPessoa.split("-");
+    	if (procuraTraco2.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		emailPessoa = validacaoEmailPessoa;
+    	}
     	
     	System.out.print("Digite o seu telefone:");
-    	String telefonePessoa = leitor.nextLine();
+//    	String telefonePessoa = leitor.nextLine();
+    	
+        String validacaoTelefonePessoa = leitor.nextLine();
+        String telefonePessoa = null;
+    	String[] procuraTraco3 = validacaoTelefonePessoa.split("-");
+    	if (procuraTraco3.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		telefonePessoa = validacaoTelefonePessoa;
+    	}
     	
     	System.out.print("Digite o seu celular: ");
-    	String celularPessoa = leitor.nextLine();
+//    	String celularPessoa = leitor.nextLine();
+    	
+        String validacaoCelularPessoa = leitor.nextLine();
+        String celularPessoa = null;
+    	String[] procuraTraco4 = validacaoCelularPessoa.split("-");
+    	if (procuraTraco4.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		celularPessoa = validacaoCelularPessoa;
+    	}
     	
     	System.out.println("\n=== Dados Residenciais ===\n\n");
     	System.out.print("Rua: ");
-    	String ruaEndereco = leitor.nextLine();
+//    	String ruaEndereco = leitor.nextLine();
+    	
+        String validacaoRuaEndereco = leitor.nextLine();
+        String ruaEndereco = null;
+    	String[] procuraTraco5 = validacaoRuaEndereco.split("-");
+    	if (procuraTraco5.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		ruaEndereco = validacaoRuaEndereco;
+    	}
     	
     	System.out.print("CEP: ");
-    	String cepEndereco = leitor.nextLine();
+//    	String cepEndereco = leitor.nextLine();
+    	
+        String validacaoCepEndereco = leitor.nextLine();
+        String cepEndereco = null;
+    	String[] procuraTraco6 = validacaoCepEndereco.split("-");
+    	if (procuraTraco6.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		cepEndereco = validacaoCepEndereco;
+    	}
     	
     	System.out.print("Bairro: ");
-    	String bairroEndereco = leitor.nextLine();
+//    	String bairroEndereco = leitor.nextLine();
+    	
+        String validacaoBairroEndereco = leitor.nextLine();
+        String bairroEndereco = null;
+    	String[] procuraTraco7 = validacaoBairroEndereco.split("-");
+    	if (procuraTraco7.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		bairroEndereco = validacaoBairroEndereco;
+    	}
     	
     	System.out.print("Numero: ");
-    	String numeroEndereco = leitor.nextLine();
+//    	String numeroEndereco = leitor.nextLine();
+    	
+        String validacaoNumeroEndereco = leitor.nextLine();
+        String numeroEndereco = null;
+    	String[] procuraTraco8 = validacaoNumeroEndereco.split("-");
+    	if (procuraTraco8.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		numeroEndereco = validacaoNumeroEndereco;
+    	}
     	
     	System.out.print("Complemento: ");
-    	String complementoEndereco = leitor.nextLine();
+//    	String complementoEndereco = leitor.nextLine();
+    	
+        String validacaoComplementoEndereco = leitor.nextLine();
+        String complementoEndereco = null;
+    	String[] procuraTraco9 = validacaoComplementoEndereco.split("-");
+    	if (procuraTraco9.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		complementoEndereco = validacaoComplementoEndereco;
+    	}
     	
     	System.out.print("Cidade: ");
-    	String cidadeEndereco = leitor.nextLine();
+//    	String cidadeEndereco = leitor.nextLine();
+    	
+        String validacaoCidadeEndereco = leitor.nextLine();
+        String cidadeEndereco = null;
+    	String[] procuraTraco10 = validacaoCidadeEndereco.split("-");
+    	if (procuraTraco10.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		cidadeEndereco = validacaoCidadeEndereco;
+    	}
     	
     	System.out.print("Estado: ");
-    	String estadoEndereco = leitor.nextLine();
+//    	String estadoEndereco = leitor.nextLine();
+    	
+        String validacaoEstadoEndereco = leitor.nextLine();
+        String estadoEndereco = null;
+    	String[] procuraTraco11 = validacaoEstadoEndereco.split("-");
+    	if (procuraTraco11.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		estadoEndereco = validacaoEstadoEndereco;
+    	}
     	
     	System.out.println("Voce eh fornecedor (s/n): ");
     	String resposta = leitor.nextLine();
@@ -896,7 +1130,19 @@ public class Main {
     	
     	if (resposta.equalsIgnoreCase("s")) {
     		System.out.println("Qual o seu CNPJ: ");
-    		String cnpj = leitor.nextLine();
+//    		String cnpj = leitor.nextLine();
+    		
+            String validacaoCnpj = leitor.nextLine();
+            String cnpj = null;
+        	String[] procuraTraco12 = validacaoCnpj.split("-");
+        	if (procuraTraco12.length != 1){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+            	menu();
+        	}
+        	else {
+        		cnpj = validacaoCnpj;
+        	}
     		
     		PessoaJuridica fornecedor = new PessoaJuridica(pessoa, cnpj);
     	try {
@@ -924,7 +1170,19 @@ public class Main {
     	}
     	else {
     		System.out.println("Qual o seu CPF: ");
-    		String cpf = leitor.nextLine();
+//    		String cpf = leitor.nextLine();
+    		
+            String validacaoCpf = leitor.nextLine();
+            String cpf = null;
+        	String[] procuraTraco12 = validacaoCpf.split("-");
+        	if (procuraTraco12.length != 1){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+            	menu();
+        	}
+        	else {
+        		cpf = validacaoCpf;
+        	}
     		
     		PessoaFisica cliente = new PessoaFisica(pessoa, cpf);
     	try {
@@ -951,6 +1209,8 @@ public class Main {
     	}
     }
 
+    // Todo: Melhorar esta listagem de clientes
+    // Done
     public static void listarClientes() {
 		System.out.print("=== Todas os clientes serao listados ===\n\n");
 		try {
@@ -985,7 +1245,6 @@ public class Main {
 
     public static void alterarClientes() {
 		System.out.print("Qual o id do cliente que voce deseja modificar: ");
-//		int idCliente = Integer.parseInt(leitor.nextLine());
 		
         String validacaoIdCliente = leitor.nextLine();
         int idCliente = 0;
@@ -998,40 +1257,172 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome do cliente: ");
-		String novoNomeCliente = leitor.nextLine();
+		
+        String validacaoNovoNomeCliente = leitor.nextLine();
+        String novoNomeCliente = null;
+    	String[] procuraTraco = validacaoNovoNomeCliente.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNomeCliente = validacaoNovoNomeCliente;
+    	}
 		
 		System.out.print("Digite o email do cliente: ");
-		String novoEmailCliente = leitor.nextLine();
+		
+        String validacaoNovoEmailCliente = leitor.nextLine();
+        String novoEmailCliente = null;
+    	String[] procuraTraco1 = validacaoNovoEmailCliente.split("-");
+    	if (procuraTraco1.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoEmailCliente = validacaoNovoEmailCliente;
+    	}
 		
 		System.out.print("Digite o novo telefone do cliente:");
-    	String novoTelefonePessoa = leitor.nextLine();
+		
+        String validacaoNovoTelefonePessoa = leitor.nextLine();
+        String novoTelefonePessoa = null;
+    	String[] procuraTraco2 = validacaoNovoTelefonePessoa.split("-");
+    	if (procuraTraco2.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoTelefonePessoa = validacaoNovoTelefonePessoa;
+    	}
     	
     	System.out.print("Digite o novo celular do Cliente: ");
-    	String novoCelularPessoa = leitor.nextLine();
+    	
+        String validacaoNovoCelularPessoa = leitor.nextLine();
+        String novoCelularPessoa = null;
+    	String[] procuraTraco3 = validacaoNovoCelularPessoa.split("-");
+    	if (procuraTraco3.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCelularPessoa = validacaoNovoCelularPessoa;
+    	}
     	    	
     	System.out.print("Digite a nova rua do cliente: ");
-    	String novaRuaEndereco = leitor.nextLine();
+    	
+        String validacaoNovaRuaEndereco = leitor.nextLine();
+        String novaRuaEndereco = null;
+    	String[] procuraTraco4 = validacaoNovaRuaEndereco.split("-");
+    	if (procuraTraco4.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novaRuaEndereco = validacaoNovaRuaEndereco;
+    	}
     	
     	System.out.print("Digite o novo CEP do cliente: ");
-    	String novoCepEndereco = leitor.nextLine();
+    	
+        String validacaoNovoCepEndereco = leitor.nextLine();
+        String novoCepEndereco = null;
+    	String[] procuraTraco5 = validacaoNovoCepEndereco.split("-");
+    	if (procuraTraco5.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCepEndereco = validacaoNovoCepEndereco;
+    	}
     	
     	System.out.print("Digite o novo bairro do cliente: ");
-    	String novoBairroEndereco = leitor.nextLine();
+    	
+        String validacaoNovoBairroEndereco = leitor.nextLine();
+        String novoBairroEndereco = null;
+    	String[] procuraTraco6 = validacaoNovoBairroEndereco.split("-");
+    	if (procuraTraco6.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoBairroEndereco = validacaoNovoBairroEndereco;
+    	}
     	
     	System.out.print("Digite o novo numero do cliente: ");
-    	String novoNumeroEndereco = leitor.nextLine();
+    	
+        String validacaoNovoNumeroEndereco = leitor.nextLine();
+        String novoNumeroEndereco = null;
+    	String[] procuraTraco7 = validacaoNovoNumeroEndereco.split("-");
+    	if (procuraTraco7.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNumeroEndereco = validacaoNovoNumeroEndereco;
+    	}
     	
     	System.out.print("Digite o novo complemento do cliente: ");
-    	String novoComplementoEndereco = leitor.nextLine();
+    	
+        String validacaoNovoComplementoEndereco = leitor.nextLine();
+        String novoComplementoEndereco = null;
+    	String[] procuraTraco8 = validacaoNovoComplementoEndereco.split("-");
+    	if (procuraTraco8.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoComplementoEndereco = validacaoNovoComplementoEndereco;
+    	}
     	
     	System.out.print("Digite a nova cidade do cliente: ");
-    	String novaCidadeEndereco = leitor.nextLine();
+    	
+        String validacaoNovaCidadeEndereco = leitor.nextLine();
+        String novaCidadeEndereco = null;
+    	String[] procuraTraco9 = validacaoNovaCidadeEndereco.split("-");
+    	if (procuraTraco9.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novaCidadeEndereco = validacaoNovaCidadeEndereco;
+    	}
     	
     	System.out.print("Digite o novo estado do cliente: ");
-    	String novoEstadoEndereco = leitor.nextLine();
+    	
+        String validacaoNovoEstadoEndereco = leitor.nextLine();
+        String novoEstadoEndereco = null;
+    	String[] procuraTraco10 = validacaoNovoEstadoEndereco.split("-");
+    	if (procuraTraco10.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoEstadoEndereco = validacaoNovoEstadoEndereco;
+    	}
     	
     	System.out.print("Digite o novo CPF do cliente: ");
-    	String novoCPFCliente = leitor.nextLine();
+    	
+        String validacaoNovoCPFCliente = leitor.nextLine();
+        String novoCPFCliente = null;
+    	String[] procuraTraco11 = validacaoNovoCPFCliente.split("-");
+    	if (procuraTraco11.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCPFCliente = validacaoNovoCPFCliente;
+    	}
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
@@ -1147,41 +1538,185 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome do fornecedor: ");
-		String novoNomeFornecedor = leitor.nextLine();
+//		String novoNomeFornecedor = leitor.nextLine();
+		
+        String validacaoNovoNomeFornecedor = leitor.nextLine();
+        String novoNomeFornecedor = null;
+    	String[] procuraTraco = validacaoNovoNomeFornecedor.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNomeFornecedor = validacaoNovoNomeFornecedor;
+    	}
 		
 		System.out.print("Digite o email do fornecedor: ");
-		String novoEmailFornecedor = leitor.nextLine();
+//		String novoEmailFornecedor = leitor.nextLine();
+		
+        String validacaoNovoEmailFornecedor = leitor.nextLine();
+        String novoEmailFornecedor = null;
+    	String[] procuraTraco1 = validacaoNovoEmailFornecedor.split("-");
+    	if (procuraTraco1.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoEmailFornecedor = validacaoNovoEmailFornecedor;
+    	}
 		
 		System.out.print("Digite o novo telefone do fornecedor:");
-    	String novoTelefonePessoa = leitor.nextLine();
+//    	String novoTelefonePessoa = leitor.nextLine();
+		
+        String validacaoNovoTelefonePessoar = leitor.nextLine();
+        String novoTelefonePessoa = null;
+    	String[] procuraTraco2 = validacaoNovoTelefonePessoar.split("-");
+    	if (procuraTraco2.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoTelefonePessoa = validacaoNovoTelefonePessoar;
+    	}
     	
     	System.out.print("Digite o novo celular do fornecedor: ");
-    	String novoCelularPessoa = leitor.nextLine();
+//    	String novoCelularPessoa = leitor.nextLine();
     	    	
+        String validacaoNovoCelularPessoa = leitor.nextLine();
+        String novoCelularPessoa = null;
+    	String[] procuraTraco3 = validacaoNovoCelularPessoa.split("-");
+    	if (procuraTraco3.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCelularPessoa = validacaoNovoCelularPessoa;
+    	}
+    	
     	System.out.print("Digite a nova rua do fornecedor: ");
-    	String novaRuaEndereco = leitor.nextLine();
+//    	String novaRuaEndereco = leitor.nextLine();
+    	
+        String validacaoNovaRuaEndereco = leitor.nextLine();
+        String novaRuaEndereco = null;
+    	String[] procuraTraco4 = validacaoNovaRuaEndereco.split("-");
+    	if (procuraTraco4.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novaRuaEndereco = validacaoNovaRuaEndereco;
+    	}
     	
     	System.out.print("Digite o novo CEP do fornecedor: ");
-    	String novoCepEndereco = leitor.nextLine();
+//    	String novoCepEndereco = leitor.nextLine();
+    	
+        String validacaoNovoCepEndereco = leitor.nextLine();
+        String novoCepEndereco = null;
+    	String[] procuraTraco5 = validacaoNovoCepEndereco.split("-");
+    	if (procuraTraco5.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCepEndereco = validacaoNovoCepEndereco;
+    	}
     	
     	System.out.print("Digite o novo bairro do fornecedor: ");
-    	String novoBairroEndereco = leitor.nextLine();
+//    	String novoBairroEndereco = leitor.nextLine();
+    	
+        String validacaoNovoBairroEndereco = leitor.nextLine();
+        String novoBairroEndereco = null;
+    	String[] procuraTraco6 = validacaoNovoBairroEndereco.split("-");
+    	if (procuraTraco6.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoBairroEndereco = validacaoNovoBairroEndereco;
+    	}
     	
     	System.out.print("Digite o novo numero do fornecedor: ");
-    	String novoNumeroEndereco = leitor.nextLine();
+//    	String novoNumeroEndereco = leitor.nextLine();
+    	
+        String validacaoNovoNumeroEndereco = leitor.nextLine();
+        String novoNumeroEndereco = null;
+    	String[] procuraTraco7 = validacaoNovoNumeroEndereco.split("-");
+    	if (procuraTraco7.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNumeroEndereco = validacaoNovoNumeroEndereco;
+    	}
     	
     	System.out.print("Digite o novo complemento do fornecedor: ");
-    	String novoComplementoEndereco = leitor.nextLine();
+//    	String novoComplementoEndereco = leitor.nextLine();
+    	
+        String validacaoNovoComplementoEndereco = leitor.nextLine();
+        String novoComplementoEndereco = null;
+    	String[] procuraTraco8 = validacaoNovoComplementoEndereco.split("-");
+    	if (procuraTraco8.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoComplementoEndereco = validacaoNovoComplementoEndereco;
+    	}
     	
     	System.out.print("Digite a nova cidade do fornecedor: ");
-    	String novaCidadeEndereco = leitor.nextLine();
+//    	String novaCidadeEndereco = leitor.nextLine();
+    	
+        String validacaoNovaCidadeEndereco = leitor.nextLine();
+        String novaCidadeEndereco = null;
+    	String[] procuraTraco9 = validacaoNovaCidadeEndereco.split("-");
+    	if (procuraTraco9.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novaCidadeEndereco = validacaoNovaCidadeEndereco;
+    	}
     	
     	System.out.print("Digite o novo estado do fornecedor: ");
-    	String novoEstadoEndereco = leitor.nextLine();
+//    	String novoEstadoEndereco = leitor.nextLine();
+    	
+        String validacaoNovoEstadoEndereco = leitor.nextLine();
+        String novoEstadoEndereco = null;
+    	String[] procuraTraco10 = validacaoNovoEstadoEndereco.split("-");
+    	if (procuraTraco10.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoEstadoEndereco = validacaoNovoEstadoEndereco;
+    	}
     	
     	System.out.print("Digite o novo CNPJ do fornecedor: ");
-    	String novoCNPJFornecedor = leitor.nextLine();
+//    	String novoCNPJFornecedor = leitor.nextLine();
 		
+        String validacaoNovoCNPJFornecedor = leitor.nextLine();
+        String novoCNPJFornecedor = null;
+    	String[] procuraTraco11 = validacaoNovoCNPJFornecedor.split("-");
+    	if (procuraTraco11.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoCNPJFornecedor = validacaoNovoCNPJFornecedor;
+    	}
+    	
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
 			
@@ -1268,11 +1803,8 @@ public class Main {
 			for (int i = 0; i < n; i++) {
 				
 				Endereco endereco = new Endereco(listaDeRuas.get(i), listaDeCeps.get(i), listaDeBairros.get(i), listaDeNumero.get(i), listaDeComplementos.get(i), listaDeCidades.get(i), listaDeEstados.get(i));
-				
 				Pessoa pessoa = new Pessoa(listaDeIds.get(i), listaDeNomes.get(i), listaDeEmails.get(i), listaDeTelefones.get(i), listaDeCelulares.get(i), endereco);
-				
 				PessoaJuridica fornecedor = new PessoaJuridica(pessoa, listaDeCnpjs.get(i));
-			
 				BufferedWriter writer = new BufferedWriter(new FileWriter("Fornecedor.txt", true));
 				writer.write(pessoa.getId() + "-");
 				writer.write(pessoa.getNome() + "-");
@@ -1297,7 +1829,7 @@ public class Main {
 		}
     }
 
-// Moviments functions    
+// Moviments functions
     public static void efetuarMovimento() {
     	System.out.println("Caso voce nao realize uma compra, sera realizado uma venda. \n");
     	System.out.print("Voce deseja fazer uma compra? (s/n): ");
@@ -1322,7 +1854,6 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Selecione qual o fornecedor (ID): ");
-//    		int idFornecedor = Integer.parseInt(leitor.nextLine());
     		
             String validacaoIdFornecedor = leitor.nextLine();
             int idFornecedor = 0;
@@ -1349,7 +1880,6 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Selecione o produto (ID): ");
-//    		int idProduto = Integer.parseInt(leitor.nextLine());
     		
             String validacaoIdProduto = leitor.nextLine();
             int idProduto = 0;
@@ -1362,7 +1892,6 @@ public class Main {
             }
     		
     		System.out.print("Digite a quantidade de itens importada: ");
-//    		int quantidadeDeItens = Integer.parseInt(leitor.nextLine());
     		
             String validacaoQuantidadeDeItens = leitor.nextLine();
             int quantidadeDeItens = 0;
@@ -1671,8 +2200,17 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Para qual cliente (ID) voce deseja vender: ");
-    		int idCliente = Integer.parseInt(leitor.nextLine());
-    		    		
+//    		int idCliente = Integer.parseInt(leitor.nextLine());
+    		
+            String validacao = leitor.nextLine();
+            int idCliente = 0;
+            try{
+            	idCliente = Integer.parseInt(validacao);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tValor invalido!");
+            	menu();
+            }
 
 			String nomeCliente = null;
 			String emailCliente = null;
@@ -1921,6 +2459,7 @@ public class Main {
 		}
 		    	
     	System.out.println("Selecione o cliente (ID) que voce deseja visualizar o relatorio de compras: ");	
+    	
         String validacao = leitor.nextLine();
         int idCliente = 0;
         try{
