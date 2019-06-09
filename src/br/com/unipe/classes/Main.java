@@ -612,7 +612,6 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome do produto: ");
-//		String novoNomeProduto = leitor.nextLine();
 		
         String validacaoNovoNomeProduto = leitor.nextLine();
         String novoNomeProduto = null;
@@ -627,7 +626,6 @@ public class Main {
     	}
 		
 		System.out.print("Digite o novo preco de venda do produto: ");
-//		float novoPrecoVendaProduto = Float.parseFloat(leitor.nextLine());
 		
         String validacaoNovoPrecoVendaProduto = leitor.nextLine();
         float novoPrecoVendaProduto = 0;
@@ -1962,9 +1960,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor inexistente!");
     		}
     		
     		// Pegando produto pelo ID
