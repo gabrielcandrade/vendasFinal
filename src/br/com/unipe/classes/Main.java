@@ -46,7 +46,7 @@ public class Main {
 	        String validacao = leitor.nextLine();
 	        int opcao = 9;
 	        try{
-	        	opcao = Integer.parseInt(validacao);
+	        	opcao = Integer.parseUnsignedInt(validacao);
 	        }catch(Exception e){
 	        	limpaTela();
 	        	System.out.println("\n\t\tValor invalido!");
@@ -106,7 +106,7 @@ public class Main {
         String validacao = leitor.nextLine();
         int opcao = 9;
         try{
-        	opcao = Integer.parseInt(validacao);
+        	opcao = Integer.parseUnsignedInt(validacao);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tValor invalido!");
@@ -175,7 +175,7 @@ public class Main {
         String validacao = leitor.nextLine();
         int opcao = 9;
         try{
-        	opcao = Integer.parseInt(validacao);
+        	opcao = Integer.parseUnsignedInt(validacao);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tValor invalido!");
@@ -242,7 +242,7 @@ public class Main {
 					
 					for (int i = 0; i < corte.length; i++) {
 						if (i % 2 == 0) {
-							idCategoria = Integer.parseInt(corte[i]);
+							idCategoria = Integer.parseUnsignedInt(corte[i]);
 						}
 					}
 				}
@@ -276,7 +276,7 @@ public class Main {
         String validacaoIdCategoria = leitor.nextLine();
         int idCategoria = 0;
         try{
-        	idCategoria = Integer.parseInt(validacaoIdCategoria);
+        	idCategoria = Integer.parseUnsignedInt(validacaoIdCategoria);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -311,12 +311,12 @@ public class Main {
 				for (int i = 0; i < corte.length; i++) {
 					if (i % 2 == 0) {
 						listaDeIds.add(corte[i]);
-						if (idCategoria == Integer.parseInt(corte[i])) {
+						if (idCategoria == Integer.parseUnsignedInt(corte[i])) {
 							listaDeCategorias.add(novoNomeCategoria);
 						}
 					}
 					else {
-						if (idCategoria != Integer.parseInt(corte[i-1])) {
+						if (idCategoria != Integer.parseUnsignedInt(corte[i-1])) {
 							listaDeCategorias.add(corte[i]);
 						}
 					}
@@ -330,7 +330,7 @@ public class Main {
 			int n = listaDeIds.size();
 			
 			for (int i = 0; i < n; i++) {
-				categoriaAlterada = new Categoria(Integer.parseInt(listaDeIds.get(i)), listaDeCategorias.get(i));
+				categoriaAlterada = new Categoria(Integer.parseUnsignedInt(listaDeIds.get(i)), listaDeCategorias.get(i));
 				BufferedWriter writer = new BufferedWriter(new FileWriter("Categoria.txt", true));
 				writer.write(categoriaAlterada.getId() + "-");
 				writer.write(categoriaAlterada.getNome() + "\n");
@@ -390,7 +390,7 @@ public class Main {
 					
 					for (int i = 0; i < corte.length; i++) {
 						if (i % 2 == 0) {
-							idUnidade = Integer.parseInt(corte[i]);
+							idUnidade = Integer.parseUnsignedInt(corte[i]);
 						}
 					}
 				}
@@ -449,7 +449,7 @@ public class Main {
 		String validacaoQntDeEstoqueProduto = leitor.nextLine();
         int qntDeEstoqueProduto = 0;
         try{
-        	qntDeEstoqueProduto = Integer.parseInt(validacaoQntDeEstoqueProduto);
+        	qntDeEstoqueProduto = Integer.parseUnsignedInt(validacaoQntDeEstoqueProduto);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -469,7 +469,7 @@ public class Main {
 	        String validacaoIdCategoria = leitor.nextLine();
 	        int idCategoria = 0;
 	        try{
-	        	idCategoria = Integer.parseInt(validacaoIdCategoria);
+	        	idCategoria = Integer.parseUnsignedInt(validacaoIdCategoria);
 	        }catch(Exception e){
 	        	limpaTela();
 	        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -485,8 +485,8 @@ public class Main {
 				
 				for (int i = 0; i < corteCategoria.length; i++) {
 					if (i % 2 == 0) {
-						if (Integer.parseInt(corteCategoria[i]) == idCategoria) {
-							idCategoria = Integer.parseInt(corteCategoria[i]);
+						if (Integer.parseUnsignedInt(corteCategoria[i]) == idCategoria) {
+							idCategoria = Integer.parseUnsignedInt(corteCategoria[i]);
 							nomeCategoria = corteCategoria[i+1];
 						}
 					}
@@ -508,7 +508,7 @@ public class Main {
 	        String validacaoIdUnidade = leitor.nextLine();
 	        int idUnidade = 0;
 	        try{
-	        	idUnidade = Integer.parseInt(validacaoIdUnidade);
+	        	idUnidade = Integer.parseUnsignedInt(validacaoIdUnidade);
 	        }catch(Exception e){
 	        	limpaTela();
 	        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -524,8 +524,8 @@ public class Main {
 				
 				for (int i = 0; i < corteUnidade.length; i++) {
 					if (i % 2 == 0) {
-						if (Integer.parseInt(corteUnidade[i]) == idUnidade) {
-							idUnidade = Integer.parseInt(corteUnidade[i]);
+						if (Integer.parseUnsignedInt(corteUnidade[i]) == idUnidade) {
+							idUnidade = Integer.parseUnsignedInt(corteUnidade[i]);
 							nomeUnidade = corteUnidade[i+1];
 						}
 					}
@@ -545,7 +545,7 @@ public class Main {
 					
 					for (int i = 0; i < corte.length; i++) {
 						if (i % 6 == 0) {
-							idProduto = Integer.parseInt(corte[i]);
+							idProduto = Integer.parseUnsignedInt(corte[i]);
 						}
 					}
 				}
@@ -600,12 +600,11 @@ public class Main {
 	
 	public static void alterarProduto() {
 		System.out.print("Qual o id do produto que voce deseja modificar: ");
-//		int idProduto = Integer.parseInt(leitor.nextLine());
 		
         String validacaoIdProduto = leitor.nextLine();
         int idProduto = 0;
         try{
-        	idProduto = Integer.parseInt(validacaoIdProduto);
+        	idProduto = Integer.parseUnsignedInt(validacaoIdProduto);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -613,7 +612,6 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome do produto: ");
-//		String novoNomeProduto = leitor.nextLine();
 		
         String validacaoNovoNomeProduto = leitor.nextLine();
         String novoNomeProduto = null;
@@ -628,7 +626,6 @@ public class Main {
     	}
 		
 		System.out.print("Digite o novo preco de venda do produto: ");
-//		float novoPrecoVendaProduto = Float.parseFloat(leitor.nextLine());
 		
         String validacaoNovoPrecoVendaProduto = leitor.nextLine();
         float novoPrecoVendaProduto = 0;
@@ -641,12 +638,11 @@ public class Main {
         }
 		
 		System.out.print("Digite a nova quantidade de estoque do produto: ");
-//		int novaQntDeEstoqueProduto = Integer.parseInt(leitor.nextLine());
 		
         String validacaoNovaQntDeEstoqueProduto = leitor.nextLine();
         int novaQntDeEstoqueProduto = 0;
         try{
-        	novaQntDeEstoqueProduto = Integer.parseInt(validacaoNovaQntDeEstoqueProduto);
+        	novaQntDeEstoqueProduto = Integer.parseUnsignedInt(validacaoNovaQntDeEstoqueProduto);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -673,7 +669,7 @@ public class Main {
 						listaDeIds.add(corte[i]);
 						listaDeCategoriaProduto.add(corte[i+4]);
 						listaDeUnidadeProduto.add(corte[i+5]);
-						if (idProduto == Integer.parseInt(corte[i])) {
+						if (idProduto == Integer.parseUnsignedInt(corte[i])) {
 							listaDeNomesDeProduto.add(novoNomeProduto);
 							listaDePrecoVendaProduto.add(novoPrecoVendaProduto);
 							listaDeQntDeEstoqueProduto.add(novaQntDeEstoqueProduto);
@@ -681,7 +677,7 @@ public class Main {
 						else {
 							listaDeNomesDeProduto.add(corte[i+1]);
 							listaDePrecoVendaProduto.add(Float.parseFloat(corte[i+2]));
-							listaDeQntDeEstoqueProduto.add(Integer.parseInt(corte[i+3]));
+							listaDeQntDeEstoqueProduto.add(Integer.parseUnsignedInt(corte[i+3]));
 						}
 					}
 				}
@@ -704,7 +700,7 @@ public class Main {
 						for (int j = 0; j < corteCategoria.length; j++) {
 							if (j % 2 == 0) {
 								if (listaDeCategoriaProduto.get(i).equals(corteCategoria[1])) {
-									categoriaAtual = new Categoria(Integer.parseInt(corteCategoria[0]), corteCategoria[1]);
+									categoriaAtual = new Categoria(Integer.parseUnsignedInt(corteCategoria[0]), corteCategoria[1]);
 								}
 							}
 						}
@@ -724,7 +720,7 @@ public class Main {
 						for (int j = 0; j < corteUnidade.length; j++) {
 							if (j % 2 == 0) {
 								if (listaDeUnidadeProduto.get(i).equals(corteUnidade[1])) {
-									unidadeAtual = new Unidade(Integer.parseInt(corteUnidade[0]), corteUnidade[1]);
+									unidadeAtual = new Unidade(Integer.parseUnsignedInt(corteUnidade[0]), corteUnidade[1]);
 								}
 							}
 						}
@@ -735,7 +731,7 @@ public class Main {
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
-				produtoAlterado = new Produto(Integer.parseInt(listaDeIds.get(i)), 
+				produtoAlterado = new Produto(Integer.parseUnsignedInt(listaDeIds.get(i)), 
 															   listaDeNomesDeProduto.get(i), 
 															   listaDePrecoVendaProduto.get(i),
 															   listaDeQntDeEstoqueProduto.get(i),
@@ -1075,7 +1071,7 @@ public class Main {
 					
 					for (int i = 0; i < cortePessoa.length; i++) {
 						if (i % 11 == 0 && i != 0) {
-							idPessoa = Integer.parseInt(cortePessoa[i-11]);
+							idPessoa = Integer.parseUnsignedInt(cortePessoa[i-11]);
 						}
 					}
 				}
@@ -1249,7 +1245,7 @@ public class Main {
         String validacaoIdCliente = leitor.nextLine();
         int idCliente = 0;
         try{
-        	idCliente = Integer.parseInt(validacaoIdCliente);
+        	idCliente = Integer.parseUnsignedInt(validacaoIdCliente);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -1447,8 +1443,8 @@ public class Main {
 				
 				for (int i = 0; i < corte.length; i++) {
 					if (i % 12 == 0 && i != 0) {
-						listaDeIds.add(Integer.parseInt(corte[i-12]));
-						if (idCliente == Integer.parseInt(corte[i-12])) {
+						listaDeIds.add(Integer.parseUnsignedInt(corte[i-12]));
+						if (idCliente == Integer.parseUnsignedInt(corte[i-12])) {
 							listaDeNomes.add(novoNomeCliente);
 							listaDeEmails.add(novoEmailCliente);
 							listaDeTelefones.add(novoTelefonePessoa);
@@ -1465,7 +1461,7 @@ public class Main {
 					}
 					else {
 						if (i % 12 == 0) {
-							if (idCliente != Integer.parseInt(corte[i])) {
+							if (idCliente != Integer.parseUnsignedInt(corte[i])) {
 								listaDeNomes.add(corte[i+1]);
 								listaDeEmails.add(corte[i+2]);
 								listaDeTelefones.add(corte[i+3]);
@@ -1525,12 +1521,11 @@ public class Main {
 
     public static void alterarFornecedores() {
 		System.out.print("Qual o id do fornecedor que voce deseja modificar: ");
-//		int idFornecedor = Integer.parseInt(leitor.nextLine());
 		
         String validacaoIdFornecedor = leitor.nextLine();
         int idFornecedor = 0;
         try{
-        	idFornecedor = Integer.parseInt(validacaoIdFornecedor);
+        	idFornecedor = Integer.parseUnsignedInt(validacaoIdFornecedor);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -1740,8 +1735,8 @@ public class Main {
 				
 				for (int i = 0; i < corte.length; i++) {
 					if (i % 12 == 0 && i != 0) {
-						listaDeIds.add(Integer.parseInt(corte[i-12]));
-						if (idFornecedor == Integer.parseInt(corte[i-12])) {
+						listaDeIds.add(Integer.parseUnsignedInt(corte[i-12]));
+						if (idFornecedor == Integer.parseUnsignedInt(corte[i-12])) {
 							listaDeNomes.add(novoNomeFornecedor);
 							listaDeEmails.add(novoEmailFornecedor);
 							listaDeTelefones.add(novoTelefonePessoa);
@@ -1758,7 +1753,7 @@ public class Main {
 					}
 					else {
 						if (i % 12 == 0) {
-							if (idFornecedor != Integer.parseInt(corte[i])) {
+							if (idFornecedor != Integer.parseUnsignedInt(corte[i])) {
 								listaDeNomes.add(corte[i+1]);
 								listaDeEmails.add(corte[i+2]);
 								listaDeTelefones.add(corte[i+3]);
@@ -1858,7 +1853,7 @@ public class Main {
             String validacaoIdFornecedor = leitor.nextLine();
             int idFornecedor = 0;
             try{
-            	idFornecedor = Integer.parseInt(validacaoIdFornecedor);
+            	idFornecedor = Integer.parseUnsignedInt(validacaoIdFornecedor);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -1884,7 +1879,7 @@ public class Main {
             String validacaoIdProduto = leitor.nextLine();
             int idProduto = 0;
             try{
-            	idProduto = Integer.parseInt(validacaoIdProduto);
+            	idProduto = Integer.parseUnsignedInt(validacaoIdProduto);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -1896,7 +1891,7 @@ public class Main {
             String validacaoQuantidadeDeItens = leitor.nextLine();
             int quantidadeDeItens = 0;
             try{
-            	quantidadeDeItens = Integer.parseInt(validacaoQuantidadeDeItens);
+            	quantidadeDeItens = Integer.parseUnsignedInt(validacaoQuantidadeDeItens);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -1944,8 +1939,8 @@ public class Main {
     				
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 12 == 0 && i != 0) {
-    						if (idFornecedor == Integer.parseInt(corte[i-12])) {
-    		    				idFornecedor = Integer.parseInt(corte[i-12]);
+    						if (idFornecedor == Integer.parseUnsignedInt(corte[i-12])) {
+    		    				idFornecedor = Integer.parseUnsignedInt(corte[i-12]);
     		    				nomeFornecedor = corte[i-11];
     		    				emailFornecedor = corte[i-10];
     		    				telefoneFornecedor = corte[i-9];
@@ -1965,9 +1960,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor inexistente!");
     		}
     		
     		// Pegando produto pelo ID
@@ -1980,8 +1975,8 @@ public class Main {
     				
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 5 == 0 && i != 0) {
-    						if (idProduto == Integer.parseInt(corte[i-5])) {
-								idProduto = Integer.parseInt(corte[i-5]);
+    						if (idProduto == Integer.parseUnsignedInt(corte[i-5])) {
+								idProduto = Integer.parseUnsignedInt(corte[i-5]);
 								nomeProduto = corte[i-4];
 								precoVendaProduto = Float.parseFloat(corte[i-3]);
 								qntDeEstoqueProduto = quantidadeDeItens;
@@ -2009,16 +2004,16 @@ public class Main {
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 2 == 0) {
     						if (categoriaProduto.equals(corte[i+1])) {
-    							idCategoria = Integer.parseInt(corte[i]);
+    							idCategoria = Integer.parseUnsignedInt(corte[i]);
     						}
     					}
     				}
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Categoria inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Categoria inexistente!");
     		}
     		
     		// Pegando unidade pelo nome
@@ -2032,16 +2027,16 @@ public class Main {
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 2 == 0) {
     						if (unidadeProduto.equals(corte[i+1])) {
-    							idUnidade = Integer.parseInt(corte[i]);
+    							idUnidade = Integer.parseUnsignedInt(corte[i]);
     						}
     					}
     				}
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Unidade inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Unidade inexistente!");
     		}
     		
     		Endereco endereco = new Endereco(ruaFornecedor, cepFornecedor, bairroFornecedor, numeroFornecedor, complementoFornecedor, cidadeFornecedor, estadoFornecedor);
@@ -2065,7 +2060,7 @@ public class Main {
     					
     					for (int i = 0; i < corte.length; i++) {
         					if (i % 4 == 0 && i != 0) {
-        						idMovimento = Integer.parseInt(corte[i-4]);
+        						idMovimento = Integer.parseUnsignedInt(corte[i-4]);
         					}
         				}
     				}
@@ -2171,12 +2166,11 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Escolha o item (ID) que voce deseja comprar: ");
-//    		int idProduto = Integer.parseInt(leitor.nextLine());
     		
             String validacaoIdProduto = leitor.nextLine();
             int idProduto = 0;
             try{
-            	idProduto = Integer.parseInt(validacaoIdProduto);
+            	idProduto = Integer.parseUnsignedInt(validacaoIdProduto);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
@@ -2222,12 +2216,11 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Para qual cliente (ID) voce deseja vender: ");
-//    		int idCliente = Integer.parseInt(leitor.nextLine());
     		
             String validacao = leitor.nextLine();
             int idCliente = 0;
             try{
-            	idCliente = Integer.parseInt(validacao);
+            	idCliente = Integer.parseUnsignedInt(validacao);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tValor invalido!");
@@ -2263,8 +2256,8 @@ public class Main {
     				
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 12 == 0 && i != 0) {
-    						if (idCliente == Integer.parseInt(corte[i-12])) {
-    							idCliente = Integer.parseInt(corte[i-12]);
+    						if (idCliente == Integer.parseUnsignedInt(corte[i-12])) {
+    							idCliente = Integer.parseUnsignedInt(corte[i-12]);
     		    				nomeCliente = corte[i-11];
     		    				emailCliente = corte[i-10];
     		    				telefoneCliente = corte[i-9];
@@ -2297,11 +2290,11 @@ public class Main {
     				
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 5 == 0 && i != 0) {
-    						if (idProduto == Integer.parseInt(corte[i-5])) {
-								idProduto = Integer.parseInt(corte[i-5]);
+    						if (idProduto == Integer.parseUnsignedInt(corte[i-5])) {
+								idProduto = Integer.parseUnsignedInt(corte[i-5]);
 								nomeProduto = corte[i-4];
 								precoVendaProduto = Float.parseFloat(corte[i-3]);
-								qntDeEstoqueProduto = Integer.parseInt(corte[i-2]);
+								qntDeEstoqueProduto = Integer.parseUnsignedInt(corte[i-2]);
 								categoriaProduto = corte[i-1];
 								unidadeProduto = corte[i];    							
     						}
@@ -2326,7 +2319,7 @@ public class Main {
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 2 == 0) {
     						if (categoriaProduto.equals(corte[i+1])) {
-    							idCategoria = Integer.parseInt(corte[i]);
+    							idCategoria = Integer.parseUnsignedInt(corte[i]);
     						}
     					}
     				}
@@ -2349,7 +2342,7 @@ public class Main {
     				for (int i = 0; i < corte.length; i++) {
     					if (i % 2 == 0) {
     						if (unidadeProduto.equals(corte[i+1])) {
-    							idUnidade = Integer.parseInt(corte[i]);
+    							idUnidade = Integer.parseUnsignedInt(corte[i]);
     						}
     					}
     				}
@@ -2382,7 +2375,7 @@ public class Main {
     					
     					for (int i = 0; i < corte.length; i++) {
         					if (i % 4 == 0 && i != 0) {
-        						idMovimento = Integer.parseInt(corte[i-4]);
+        						idMovimento = Integer.parseUnsignedInt(corte[i-4]);
         					}
         				}
     				}
@@ -2495,6 +2488,8 @@ public class Main {
     	
     	String nomeCliente = null;
     	
+    	// Estou na develop
+    	
     	// Pegar nome do cliente pelo ID
     	try {
 			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
@@ -2503,7 +2498,7 @@ public class Main {
 				String[] corte = linha.split("-");
 				for (int i = 0; i < corte.length; i++) {
 					if (i % 12 == 0 && i != 0) {
-						if (idCliente == Integer.parseInt(corte[i-12])) {
+						if (idCliente == Integer.parseUnsignedInt(corte[i-12])) {
 							nomeCliente = corte[i-11];
 						}
 					}
@@ -2537,9 +2532,9 @@ public class Main {
 			}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Usuario inexistente!");
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Usuario inexistente!");
 		}
 		menu();
 		System.out.println();
