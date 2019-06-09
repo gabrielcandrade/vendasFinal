@@ -2013,9 +2013,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Categoria inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Categoria inexistente!");
     		}
     		
     		// Pegando unidade pelo nome
