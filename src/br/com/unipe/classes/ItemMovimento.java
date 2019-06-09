@@ -15,6 +15,12 @@ public class ItemMovimento {
 		this.produto = produto;
 	}
 	
+	public ItemMovimento(int quantidade, Produto produto) {
+		super();
+		this.quantidade = quantidade;
+		this.produto = produto;
+	}
+	
 	// Getters and Setters
 	public int getQuantidade() {
 		return quantidade;

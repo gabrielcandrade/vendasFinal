@@ -12,24 +12,179 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-//		cadastrarCategoria();
-//		listarCategoria();
-//		alterarCategoria();
-//		cadastrarUnidade();
-//		cadastrarProduto();
-//		listarProdutos();
 //		autenticacao();
 //		cadastrarUsuario();
-//		alterarProduto();
-//		cadastrarPessoa();
-//		listarFornecedores();
-//		listarClientes();
-//		alterarClientes();
-//		alterarFornecedores();
-		
-		efetuarMovimento();
+		menu();
    }
 	
+// System functions
+    public static void limpaTela(){
+    	for (int i = 0; i < 50; ++i) {
+    		System.out.println ();
+    	}		
+    }
+    
+    public static void menu() {
+        	Scanner leitor = new Scanner(System.in);
+        	
+        	System.out.println(" ___________________________________________");
+        	System.out.println("|                                           |");
+        	System.out.println("|       Selecione a opcao desejada:         |");
+        	System.out.println("|                                           |");
+	      	System.out.println("|           1- Produtos                     |");
+	      	System.out.println("|           2- Pessoa                       |");
+	      	System.out.println("|           3- Movimento                    |");
+	      	System.out.println("|           4- Relatorio do cliente         |");
+	      	System.out.println("|                                           |");
+	      	System.out.println("|___________________________________________|");
+	        System.out.print("    Opcao desejada: ");
+	        String validacao = leitor.next();
+	        int opcao = 9;
+	        try{
+	        	opcao = Integer.parseInt(validacao);
+	        }catch(Exception e){
+	        	limpaTela();
+	        	System.out.println("\n\t\tValor invalido!");
+	        	menu();
+	        }
+          
+	        switch (opcao) {
+	          	case 1:
+		          	limpaTela();
+		          	menuProdutos();
+		          	break;
+	          	case 2:
+		          	limpaTela();
+		          	menuPessoa();
+		          	break;
+	          	case 3:
+		          	limpaTela();
+		          	efetuarMovimento();
+		          	break;
+	          	case 4:
+		          	limpaTela();
+		          	//Abastece estoque
+		          	break;
+	          	default: 
+		          	System.out.println("\n\t\tOpcao invalida. ");
+		          	menu();
+		          	break;
+	        }
+	        leitor.close();
+        }
+
+    public static void menuProdutos() {
+    	Scanner leitor = new Scanner(System.in);
+
+    	System.out.println(" ___________________________________________");
+		System.out.println("|                                           |");
+		System.out.println("|      Bem vindo ao meno de Produtos        |");
+		System.out.println("|                                           |");
+		System.out.println("|       Selecione a opcao desejada:         |");
+		System.out.println("|                                           |");
+		System.out.println("|             1- Adicionar Produto          |");
+		System.out.println("|             2- Listar Produto             |");
+		System.out.println("|             3- Alterar Produto            |");
+		System.out.println("|                                           |");
+		System.out.println("|             4- Adicionar Categoria        |");
+		System.out.println("|             5- Listar Categoria           |");
+		System.out.println("|             6- Alterar Categoria          |");
+		System.out.println("|                                           |");
+		System.out.println("|             7- Adicionar Unidade          |");
+		System.out.println("|___________________________________________|");
+		System.out.print("  Opcao desejada:");
+        String validacao = leitor.next();
+        int opcao = 9;
+        try{
+        	opcao = Integer.parseInt(validacao);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tValor invalido!");
+        	menu();
+        }
+		
+		switch (opcao) {
+		case 1:
+			cadastrarProduto();
+			break;
+		case 2:
+			listarProdutos();
+			break;
+		case 3:
+			alterarProduto();
+			break;
+		case 4:
+			cadastrarCategoria();
+			break;
+		case 5:
+			listarCategoria();
+			break;
+		case 6:
+			alterarCategoria();
+			break;
+		case 7:
+			cadastrarUnidade();
+			break;
+		default:
+			System.out.println("Opcao invalida.");
+			menu();
+			break;
+		}
+		leitor.close();
+    }
+    
+    public static void menuPessoa() {
+    	Scanner leitor = new Scanner(System.in);
+    	
+		System.out.println(" ___________________________________________");
+		System.out.println("|                                           |");
+		System.out.println("|      Bem vindo ao menu de Pessoa          |");
+		System.out.println("|                                           |");
+		System.out.println("|       Selecione a opcao desejada:         |");
+		System.out.println("|                                           |");
+		System.out.println("|             1- Adicionar Pessoa           |");
+		System.out.println("|                                           |");
+		System.out.println("|             2- Listar Clientes            |");
+		System.out.println("|             3- Alterar Cliente            |");
+		System.out.println("|                                           |");
+		System.out.println("|             4- Listar Fornecedor          |");
+		System.out.println("|             5- Alterar Fornecedor         |");
+		System.out.println("|___________________________________________|");
+		System.out.print("  Opcao desejada:");
+        String validacao = leitor.next();
+        int opcao = 9;
+        try{
+        	opcao = Integer.parseInt(validacao);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tValor invalido!");
+        	menu();
+        }
+		
+		switch (opcao) {
+		case 1:
+			cadastrarPessoa();
+			break;
+		case 2:
+			listarClientes();
+			break;
+		case 3:
+			alterarClientes();
+			break;
+		case 4:
+			listarFornecedores();
+			break;
+		case 5:
+			alterarFornecedores();
+			break;
+		default:
+			System.out.println("Opcao invalida.");
+			menu();
+			break;
+		}
+		leitor.close();
+    }
+    
 // Categories functions
 	public static void cadastrarCategoria() {
 		
@@ -540,69 +695,6 @@ public class Main {
 		
 		leitor.close();
 	}
-
-// System functions
-    public static void limpaTela(){
-    	for (int i = 0; i < 50; ++i) {
-    		System.out.println ();
-    	}		
-    }
-    
-    public static void menu() {
-        while (true){
-        	Scanner leitor = new Scanner(System.in);
-        	
-        	System.out.println(" ___________________________________________");
-        	System.out.println("|                                           |");
-        	System.out.println("|       Selecione a opcao desejada:         |");
-        	System.out.println("|                                           |");
-	      	System.out.println("|               1- Produtos                 |");
-	      	System.out.println("|               2- Clientes                 |");
-	      	System.out.println("|               3- Fornecedores             |");
-	      	System.out.println("|               4- Compra (Estoque)         |");
-	      	System.out.println("|               5- Venda                    |");
-	      	System.out.println("|               6- Relatorios               |");
-	      	System.out.println("|                                           |");
-	      	System.out.println("|___________________________________________|");
-	        System.out.print("    Opcao desejada: ");
-	        int opcao = leitor.nextInt();
-          
-	        switch (opcao) {
-	          	case 1:
-		          	System.out.println("Voce entrou no menu de produtos. ");
-		          	break;
-	          	case 2:
-		          	System.out.println("Voce entrou no menu de clientes. ");
-		          	//CLIENTE (ADD, REMOVE, ALTERA)
-		          	break;
-	          	case 3:
-		          	System.out.println("Voce entrou no menu de fornecedores. ");
-		          	//FORNECEDOR (ADD, REMOVE, ALTERA)
-		          	break;
-	          	case 4:
-		          	System.out.println("Voce entrou no menu de compra de estoque. ");
-		          	//Abastece estoque
-		          	break;
-	          	case 5:
-		          	System.out.println("Voce entrou no menu de venda. ");
-		          	//Efetuar uma venda
-		          	//A venda sera feita com o ID do cliente e ID*QTD do produto
-		          	break;
-	          	case 6:
-		          	System.out.println("Voce entrou no menu de relatorios. ");
-  				    //•	Gerar relatórios de vendas por intervalos de datas;
-				    //•	Visualizar compras anteriores de um dado cliente;
-				    //•	Calcular o consumo médio mensal de cada produto;
-				    //•	Gerar relatório do que se precisa comprar pra suprir um mês com base no consumo médio mensal, ou seja, mostrar os produtos que estão com quantidade abaixo do consumo médio mensal;
-				    //•	Gerar relatório dos fornecedores por produto que ofereceram um dado produto com o menor preço registrado.
-				    //•	Gerar relatório de lucro líquido mensal por exercício
-	          	default: 
-		          	System.out.println("Opcao invalida. ");
-		          	break;
-	        }
-	        leitor.close();
-        }
-    }  
 
 // Person functions
     public static void cadastrarPessoa() {
@@ -1120,6 +1212,7 @@ public class Main {
 		leitor.close();
     }
 
+// Moviments functions    
     public static void efetuarMovimento() {
     	Scanner leitor = new Scanner(System.in);
     	
@@ -1277,7 +1370,7 @@ public class Main {
     			e.printStackTrace();
     		}
     		
-    		// Pegando categoria pelo nome
+    		// Pegando unidade pelo nome
     		try {
     			BufferedReader reader = new BufferedReader(new FileReader("Unidade.txt"));
     			
@@ -1399,7 +1492,7 @@ public class Main {
     		}		
     	}
     	else {
-    		try {
+    		try {    			
     			BufferedReader reader = new BufferedReader(new FileReader("Compra.txt"));
 				System.out.println("------------------------");
 
@@ -1429,11 +1522,23 @@ public class Main {
     		System.out.print("Escolha o item (ID) que voce deseja comprar: ");
     		int idProduto = Integer.parseInt(leitor.nextLine());
     		
+    		System.out.print("Qual a data de hoje: ");
+    		String dataMovimento = leitor.nextLine();
+    		
     		try {
     			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+				System.out.println("------------------------");
+
     			while(reader.ready()) {
     				String linha = reader.readLine();
-    				System.out.println(linha);
+					String[] corte = linha.split("-");
+					for (int i = 0; i < corte.length; i++) {
+    					if (i % 12 == 0 && i != 0) {
+    						System.out.println("ID: " + corte[i-12]);
+    						System.out.println("NOME: " + corte[i-11]);
+    						System.out.println("------------------------");
+    					}
+    				}
     		}
     			reader.close();
     		}catch (IOException e) {
@@ -1443,17 +1548,229 @@ public class Main {
     		}
     		System.out.println();
     		
-    		System.out.println("Para qual cliente (ID) voce deseja vender: ");
+    		System.out.print("Para qual cliente (ID) voce deseja vender: ");
     		int idCliente = Integer.parseInt(leitor.nextLine());
+    		    		
 
+			String nomeCliente = null;
+			String emailCliente = null;
+			String telefoneCliente = null;
+			String celularCliente = null;
+			String ruaCliente = null;
+			String cepCliente = null;
+			String bairroCliente = null;
+			String numeroCliente = null;
+			String complementoCliente = null;
+			String cidadeCliente = null;
+			String estadoCliente = null;
+			String cpfCliente = null;
+			String nomeProduto = null;
+			float precoVendaProduto = 0;
+			int qntDeEstoqueProduto = 0;
+			String categoriaProduto = null;
+			String unidadeProduto = null;
+			int idCategoria = 0;
+			int idUnidade = 0;
     		
-//    		Endereco endereco = new Endereco(rua, cep, bairro, numero, complemento, cidade, estado);
-//    		Pessoa pessoa = new Pessoa(id, nome, email, telefone, celular, endereco);
-//    		PessoaFisica cliente = new PessoaFisica(pessoa, cpf);
-//    		itemMovimento itemMovimento = new ItemMovimento(quantidade, preco, produto)
-//    		Movimento movimento = new Movimento(id, data, pessoaFisica, itemMovimento);
-//    		Venda venda = new Venda(movimento)
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 12 == 0 && i != 0) {
+    						if (idCliente == Integer.parseInt(corte[i-12])) {
+    							idCliente = Integer.parseInt(corte[i-12]);
+    		    				nomeCliente = corte[i-11];
+    		    				emailCliente = corte[i-10];
+    		    				telefoneCliente = corte[i-9];
+    		    				celularCliente = corte[i-8];
+    		    				ruaCliente = corte[i-7];
+    		    				cepCliente = corte[i-6];
+    		    				bairroCliente = corte[i-5];
+    		    				numeroCliente = corte[i-4];
+    		    				complementoCliente = corte[i-3];
+    		    				cidadeCliente = corte[i-2];
+    		    				estadoCliente = corte[i-1];
+    		    				cpfCliente = corte[i];
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
     		
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Produto.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 5 == 0 && i != 0) {
+    						if (idProduto == Integer.parseInt(corte[i-5])) {
+								idProduto = Integer.parseInt(corte[i-5]);
+								nomeProduto = corte[i-4];
+								precoVendaProduto = Float.parseFloat(corte[i-3]);
+								qntDeEstoqueProduto = Integer.parseInt(corte[i-2]);
+								categoriaProduto = corte[i-1];
+								unidadeProduto = corte[i];    							
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		// Pegando categoria pelo nome
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Categoria.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 2 == 0) {
+    						if (categoriaProduto.equals(corte[i+1])) {
+    							idCategoria = Integer.parseInt(corte[i]);
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		// Pegando unidade pelo nome
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Unidade.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 2 == 0) {
+    						if (unidadeProduto.equals(corte[i+1])) {
+    							idUnidade = Integer.parseInt(corte[i]);
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		Endereco endereco = new Endereco(ruaCliente, cepCliente, bairroCliente, numeroCliente, complementoCliente, cidadeCliente, estadoCliente);
+    		Pessoa pessoa = new Pessoa(idCliente, nomeCliente, emailCliente, telefoneCliente, celularCliente, endereco);
+    		PessoaFisica cliente = new PessoaFisica(pessoa, cpfCliente);
+    		Categoria categoria = new Categoria(idCategoria, categoriaProduto);
+    		Unidade unidade = new Unidade(idUnidade, unidadeProduto);
+    		Produto produto = new Produto(idProduto, nomeProduto, precoVendaProduto, qntDeEstoqueProduto, categoria, unidade);
+    		ItemMovimento itemMovimento = new ItemMovimento(produto.getQtde_estoque(), produto);
+    		Movimento movimento = null;
+    		Venda venda = null;
+    		
+    		try {
+    			File f = new File("Movimento.txt");
+    			if (f.exists()){
+    				int idMovimento = 0;
+    				BufferedReader reader = new BufferedReader(new FileReader("Movimento.txt"));
+    				while(reader.ready()) {
+    					String linha = reader.readLine();
+    					String[] corte = linha.split("-");
+    					
+    					for (int i = 0; i < corte.length; i++) {
+        					if (i % 4 == 0 && i != 0) {
+        						idMovimento = Integer.parseInt(corte[i-4]);
+        					}
+        				}
+    				}
+    				reader.close();
+    				movimento = new Movimento(idMovimento+1, dataMovimento, cliente, itemMovimento);
+    	    		venda = new Venda(movimento);
+
+    				BufferedWriter writer = new BufferedWriter(new FileWriter("Movimento.txt", true));
+    				
+    				writer.write(movimento.getId() + "-");
+    				writer.write(movimento.getData() + "-");
+    				writer.write(movimento.getTotal() + "-");
+    				writer.write(venda.getMovimento().getPessoaFisica().getPessoa().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writer.close();
+    				
+    				BufferedWriter writerVenda = new BufferedWriter(new FileWriter("Venda.txt", true));
+    				writerVenda.write(venda.getMovimento().getId() + "-");
+    				writerVenda.write(venda.getMovimento().getData() + "-");
+    				writerVenda.write(venda.getMovimento().getTotal() + "-");
+    				writerVenda.write(venda.getMovimento().getPessoaFisica().getPessoa().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writerVenda.close();
+    			}
+    			else {
+    				movimento = new Movimento(1, dataMovimento, cliente, itemMovimento);
+    	    		venda = new Venda(movimento);
+    				
+    				BufferedWriter writer = new BufferedWriter(new FileWriter("Movimento.txt", true));
+    				writer.write(movimento.getId() + "-");
+    				writer.write(movimento.getData() + "-");
+    				writer.write(movimento.getTotal() + "-");
+    				writer.write(venda.getMovimento().getPessoaFisica().getPessoa().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writer.write(venda.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writer.close();
+    				
+    				BufferedWriter writerVenda = new BufferedWriter(new FileWriter("Venda.txt", true));
+    				writerVenda.write(venda.getMovimento().getId() + "-");
+    				writerVenda.write(venda.getMovimento().getData() + "-");
+    				writerVenda.write(venda.getMovimento().getTotal() + "-");
+    				writerVenda.write(venda.getMovimento().getPessoaFisica().getPessoa().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writerVenda.write(venda.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writerVenda.close();
+    			}
+    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}		
     	}
     	
     	leitor.close();
