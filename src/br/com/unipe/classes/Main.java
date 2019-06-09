@@ -1123,15 +1123,11 @@ public class Main {
     public static void efetuarMovimento() {
     	Scanner leitor = new Scanner(System.in);
     	
+    	System.out.println("Caso voce nao realize uma compra, sera realizado uma venda. \n");
     	System.out.print("Voce deseja fazer uma compra? (s/n): ");
-    	String compra = leitor.nextLine();
-    	System.out.println("Lembre-se: Podem realizar compras apenas a partir de fornecedores (abastecer estoque)");
-    	System.out.print("Voce ira adquirir de algum fornecedor? (s/n): ");
-    	String fornecedor = leitor.nextLine();
+    	String opcaoCompra = leitor.nextLine();
     	
-    	if (compra.equalsIgnoreCase("s") && fornecedor.equalsIgnoreCase("s")) {
-    		System.out.println("Compra permitida.");
-    		
+    	if (opcaoCompra.equalsIgnoreCase("s")) {		
     		System.out.print("Qual a data de hoje: ");
     		String dataMovimento = leitor.nextLine();
     		
@@ -1175,16 +1171,289 @@ public class Main {
     		System.out.println("Digite o preco unitario: ");
     		float precoUnitario = Float.parseFloat(leitor.nextLine());
     		
-    		// Ler os arquivos comparando se existe tudo isso aqui.
-//    		Pessoa pessoa = new Pessoa(idFornecedor, )
-//    		PessoaJuridica fornecedor = new PessoaJuridica(pessoa, cnpj);
-//    		ItemMovimento itemMovimento = new ItemMovimento()
-//    		Movimento movimento = new Movimento(id, data, total, usuario, pessoaJuridica, itemMovimento)
-//    		Compra compra = new Compra(movimento);
+			String nomeFornecedor = null;
+			String emailFornecedor = null;
+			String telefoneFornecedor = null;
+			String celularFornecedor = null;
+			String ruaFornecedor = null;
+			String cepFornecedor = null;
+			String bairroFornecedor = null;
+			String numeroFornecedor = null;
+			String complementoFornecedor = null;
+			String cidadeFornecedor = null;
+			String estadoFornecedor = null;
+			String cnpjFornecedor = null;
+			String nomeProduto = null;
+			float precoVendaProduto = 0;
+			int qntDeEstoqueProduto = 0;
+			String categoriaProduto = null;
+			String unidadeProduto = null;
+			int idCategoria = 0;
+			int idUnidade = 0;
+    		
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Fornecedor.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 12 == 0 && i != 0) {
+    						if (idFornecedor == Integer.parseInt(corte[i-12])) {
+    		    				idFornecedor = Integer.parseInt(corte[i-12]);
+    		    				nomeFornecedor = corte[i-11];
+    		    				emailFornecedor = corte[i-10];
+    		    				telefoneFornecedor = corte[i-9];
+    		    				celularFornecedor = corte[i-8];
+    		    				ruaFornecedor = corte[i-7];
+    		    				cepFornecedor = corte[i-6];
+    		    				bairroFornecedor = corte[i-5];
+    		    				numeroFornecedor = corte[i-4];
+    		    				complementoFornecedor = corte[i-3];
+    		    				cidadeFornecedor = corte[i-2];
+    		    				estadoFornecedor = corte[i-1];
+    		    				cnpjFornecedor = corte[i];
+    						}
+    					}
+    				}
+    				
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		// Pegando produto pelo ID
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Produto.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 5 == 0 && i != 0) {
+    						if (idProduto == Integer.parseInt(corte[i-5])) {
+								idProduto = Integer.parseInt(corte[i-5]);
+								nomeProduto = corte[i-4];
+								precoVendaProduto = Float.parseFloat(corte[i-3]);
+								qntDeEstoqueProduto = quantidadeDeItens;
+								categoriaProduto = corte[i-1];
+								unidadeProduto = corte[i];    							
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		// Pegando categoria pelo nome
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Categoria.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 2 == 0) {
+    						if (categoriaProduto.equals(corte[i+1])) {
+    							idCategoria = Integer.parseInt(corte[i]);
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		// Pegando categoria pelo nome
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Unidade.txt"));
+    			
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				String[] corte = linha.split("-");
+    				
+    				for (int i = 0; i < corte.length; i++) {
+    					if (i % 2 == 0) {
+    						if (unidadeProduto.equals(corte[i+1])) {
+    							idUnidade = Integer.parseInt(corte[i]);
+    						}
+    					}
+    				}
+    			}
+    			reader.close();    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		
+    		Endereco endereco = new Endereco(ruaFornecedor, cepFornecedor, bairroFornecedor, numeroFornecedor, complementoFornecedor, cidadeFornecedor, estadoFornecedor);
+    		Pessoa pessoa = new Pessoa(idFornecedor, nomeFornecedor, emailFornecedor, telefoneFornecedor, celularFornecedor, endereco);
+    		PessoaJuridica fornecedor = new PessoaJuridica(pessoa, cnpjFornecedor);
+    		Categoria categoria = new Categoria(idCategoria, categoriaProduto);
+    		Unidade unidade = new Unidade(idUnidade, unidadeProduto);
+    		Produto produto = new Produto(idProduto, nomeProduto, precoVendaProduto, qntDeEstoqueProduto, categoria, unidade);
+    		ItemMovimento itemMovimento = new ItemMovimento(quantidadeDeItens, precoUnitario, produto);
+    		Movimento movimento = null;
+    		Compra compra = null;
+    		
+    		try {
+    			File f = new File("Movimento.txt");
+    			if (f.exists()){
+    				int idMovimento = 0;
+    				BufferedReader reader = new BufferedReader(new FileReader("Movimento.txt"));
+    				while(reader.ready()) {
+    					String linha = reader.readLine();
+    					String[] corte = linha.split("-");
+    					
+    					for (int i = 0; i < corte.length; i++) {
+        					if (i % 4 == 0 && i != 0) {
+        						idMovimento = Integer.parseInt(corte[i-4]);
+        					}
+        				}
+    				}
+    				reader.close();
+    				movimento = new Movimento(idMovimento+1, dataMovimento, fornecedor, itemMovimento);
+    	    		compra = new Compra(movimento);
+
+    				BufferedWriter writer = new BufferedWriter(new FileWriter("Movimento.txt", true));
+    				
+    				float total = precoUnitario * quantidadeDeItens;
+    				movimento.setTotal(total);
+    				
+    				writer.write(movimento.getId() + "-");
+    				writer.write(movimento.getData() + "-");
+    				writer.write(movimento.getTotal() + "-");
+    				writer.write(compra.getMovimento().getPessoaJuridica().getPessoa().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writer.close();
+    				
+    				BufferedWriter writerCompra = new BufferedWriter(new FileWriter("Compra.txt", true));
+    				writerCompra.write(compra.getMovimento().getId() + "-");
+    				writerCompra.write(compra.getMovimento().getData() + "-");
+    				writerCompra.write(compra.getMovimento().getTotal() + "-");
+    				writerCompra.write(compra.getMovimento().getPessoaJuridica().getPessoa().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writerCompra.close();
+    			}
+    			else {
+    				movimento = new Movimento(1, dataMovimento, fornecedor, itemMovimento);
+    	    		compra = new Compra(movimento);
+    				
+    				float total = precoUnitario * quantidadeDeItens;
+    				movimento.setTotal(total);
+    				
+    				BufferedWriter writer = new BufferedWriter(new FileWriter("Movimento.txt", true));
+    				writer.write(movimento.getId() + "-");
+    				writer.write(movimento.getData() + "-");
+    				writer.write(movimento.getTotal() + "-");
+    				writer.write(compra.getMovimento().getPessoaJuridica().getPessoa().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writer.write(compra.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writer.close();
+    				
+    				BufferedWriter writerCompra = new BufferedWriter(new FileWriter("Compra.txt", true));
+    				writerCompra.write(compra.getMovimento().getId() + "-");
+    				writerCompra.write(compra.getMovimento().getData() + "-");
+    				writerCompra.write(compra.getMovimento().getTotal() + "-");
+    				writerCompra.write(compra.getMovimento().getPessoaJuridica().getPessoa().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getId() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getPrecoVenda() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getQtde_estoque() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getCategoria().getNome() + "-");
+    				writerCompra.write(compra.getMovimento().getItemMovimento().getProduto().getUnidade().getNome() + "\n");
+    				writerCompra.close();
+    			}
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}		
     	}
     	else {
-    		System.out.println("Compra negada.");
-    		System.out.println("Deseja realizar uma venda?");
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Compra.txt"));
+				System.out.println("------------------------");
+
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+					String[] corte = linha.split("-");
+					for (int i = 0; i < corte.length; i++) {
+    					if (i % 9 == 0 && i != 0) {
+							System.out.println("ID: " + corte[i-5]);
+							System.out.println("NOME: " + corte[i-4]);
+							System.out.println("PRECO: " + corte[i-3]);
+							System.out.println("QNT: " + corte[i-2]);
+							System.out.println("CATEGORIA: " + corte[i-1]);
+							System.out.println("UNIDADE: " + corte[i]);
+							System.out.println("------------------------");
+    					}
+    				}
+    		}
+    			reader.close();
+    		}catch (IOException e) {
+    			e.printStackTrace();
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		System.out.println();
+    		
+    		System.out.print("Escolha o item (ID) que voce deseja comprar: ");
+    		int idProduto = Integer.parseInt(leitor.nextLine());
+    		
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				System.out.println(linha);
+    		}
+    			reader.close();
+    		}catch (IOException e) {
+    			e.printStackTrace();
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		System.out.println();
+    		
+    		System.out.println("Para qual cliente (ID) voce deseja vender: ");
+    		int idCliente = Integer.parseInt(leitor.nextLine());
+
+    		
+//    		Endereco endereco = new Endereco(rua, cep, bairro, numero, complemento, cidade, estado);
+//    		Pessoa pessoa = new Pessoa(id, nome, email, telefone, celular, endereco);
+//    		PessoaFisica cliente = new PessoaFisica(pessoa, cpf);
+//    		itemMovimento itemMovimento = new ItemMovimento(quantidade, preco, produto)
+//    		Movimento movimento = new Movimento(id, data, pessoaFisica, itemMovimento);
+//    		Venda venda = new Venda(movimento)
+    		
     	}
     	
     	leitor.close();

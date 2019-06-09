@@ -1,24 +1,19 @@
 package br.com.unipe.classes;
 
-import java.sql.Date;
-
 public class Movimento {
 	
 	// Attributes
 	private int id;
-	private Date data;
-	private int total;
-	private Usuario usuario;
+	private String data;
+	private float total;
 	private PessoaJuridica pessoaJuridica;
 	private ItemMovimento itemMovimento;
 	
 	//Constructor
-	public Movimento(int id, Date data, int total, Usuario usuario, PessoaJuridica pessoaJuridica, ItemMovimento itemMovimento) {
+	public Movimento(int id, String data, PessoaJuridica pessoaJuridica, ItemMovimento itemMovimento) {
 		super();
 		this.id = id;
 		this.data = data;
-		this.total = total;
-		this.usuario = usuario;
 		this.pessoaJuridica = pessoaJuridica;
 		this.itemMovimento = itemMovimento;
 	}
@@ -32,27 +27,20 @@ public class Movimento {
 		this.id = id;
 	}
 	
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 	
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	
-	public int getTotal() {
+	public float getTotal() {
 		return total;
 	}
 	
-	public void setTotal(int total) {
+	public void setTotal(float total) {
 		this.total = total;
-	}
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 	
 	public PessoaJuridica getPessoaJuridica() {
