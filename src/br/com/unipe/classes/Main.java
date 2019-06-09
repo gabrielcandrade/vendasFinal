@@ -2034,9 +2034,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Unidade inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Unidade inexistente!");
     		}
     		
     		Endereco endereco = new Endereco(ruaFornecedor, cepFornecedor, bairroFornecedor, numeroFornecedor, complementoFornecedor, cidadeFornecedor, estadoFornecedor);
