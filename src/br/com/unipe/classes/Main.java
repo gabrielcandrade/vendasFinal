@@ -2171,10 +2171,32 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Escolha o item (ID) que voce deseja comprar: ");
-    		int idProduto = Integer.parseInt(leitor.nextLine());
+//    		int idProduto = Integer.parseInt(leitor.nextLine());
+    		
+            String validacaoIdProduto = leitor.nextLine();
+            int idProduto = 0;
+            try{
+            	idProduto = Integer.parseInt(validacaoIdProduto);
+            }catch(Exception e){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+            	menu();
+            }
     		
     		System.out.print("Qual a data de hoje: ");
-    		String dataMovimento = leitor.nextLine();
+//    		String dataMovimento = leitor.nextLine();
+    		
+            String validacaoDataMovimento = leitor.nextLine();
+            String dataMovimento = null;
+        	String[] procuraTraco = validacaoDataMovimento.split("-");
+        	if (procuraTraco.length != 1){
+            	limpaTela();
+            	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+            	menu();
+        	}
+        	else {
+        		dataMovimento = validacaoDataMovimento;
+        	}
     		
     		try {
     			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
