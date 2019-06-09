@@ -1360,19 +1360,19 @@ public class Main {
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
             	menu();
-            
+            }
     		
     		System.out.println("Digite o preco unitario: ");
-//    		float precoUnitario = Float.parseFloat(leitor.nextLine());
     		
             String validacaoPrecoUnitario = leitor.nextLine();
             float precoUnitario = 0;
             try{
-            	precoUnitario = Integer.parseInt(validacaoPrecoUnitario);
+            	precoUnitario = Float.parseFloat(validacaoPrecoUnitario);
             }catch(Exception e){
             	limpaTela();
             	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
             	menu();
+            }
     		
 			String nomeFornecedor = null;
 			String emailFornecedor = null;
