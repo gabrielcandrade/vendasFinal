@@ -2432,6 +2432,7 @@ public class Main {
     			e.printStackTrace();
     		}		
     	}
+    	menu();
     }
     
     public static void gerarRelatorioPorCliente() {
