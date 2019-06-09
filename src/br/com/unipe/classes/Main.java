@@ -12,9 +12,9 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-//		autenticacao();
+		autenticacao();
 //		cadastrarUsuario();
-		menu();
+//		menu();
    }
 	
 // System functions
@@ -63,9 +63,10 @@ public class Main {
 		          	break;
 	          	case 4:
 		          	limpaTela();
-		          	//Abastece estoque
+		          	// Gerar relatorio
 		          	break;
-	          	default: 
+	          	default:
+	          		limpaTela();
 		          	System.out.println("\n\t\tOpcao invalida. ");
 		          	menu();
 		          	break;
@@ -637,8 +638,8 @@ public class Main {
 						if (i % 4 == 0) {
 							if (login.equals(corteUsuario[i])) {
 								if (senha.equals(corteUsuario[i+1])) {
-									message = "Sucess";
-									break;
+									System.out.println("Usuario Autenticado.");
+									menu();
 								}
 							}
 						}
@@ -646,6 +647,7 @@ public class Main {
 				}
 				System.out.println(message);
 				reader.close();
+				autenticacao();
 			}
 			else {
 				System.out.println("Usuario.txt nao existe com os usuarios cadastrados!");
