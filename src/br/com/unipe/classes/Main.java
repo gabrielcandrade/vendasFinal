@@ -21,7 +21,13 @@ public class Main {
 //		autenticacao();
 //		cadastrarUsuario();
 //		alterarProduto();
-		cadastrarPessoa();
+//		cadastrarPessoa();
+//		listarFornecedores();
+//		listarClientes();
+//		alterarClientes();
+//		alterarFornecedores();
+		
+		efetuarMovimento();
    }
 	
 // Categories functions
@@ -604,30 +610,37 @@ public class Main {
     	Pessoa pessoa = null;
     	
     	System.out.println("=== Dados Pessoais ===\n\n");
-    	
     	System.out.print("Digite o seu nome: ");
     	String nomePessoa = leitor.nextLine();
+    	
     	System.out.print("Digite o seu email: ");
     	String emailPessoa = leitor.nextLine();
+    	
     	System.out.print("Digite o seu telefone:");
     	String telefonePessoa = leitor.nextLine();
+    	
     	System.out.print("Digite o seu celular: ");
     	String celularPessoa = leitor.nextLine();
     	
     	System.out.println("\n=== Dados Residenciais ===\n\n");
-    	
     	System.out.print("Rua: ");
     	String ruaEndereco = leitor.nextLine();
+    	
     	System.out.print("CEP: ");
     	String cepEndereco = leitor.nextLine();
+    	
     	System.out.print("Bairro: ");
     	String bairroEndereco = leitor.nextLine();
+    	
     	System.out.print("Numero: ");
     	String numeroEndereco = leitor.nextLine();
+    	
     	System.out.print("Complemento: ");
     	String complementoEndereco = leitor.nextLine();
+    	
     	System.out.print("Cidade: ");
     	String cidadeEndereco = leitor.nextLine();
+    	
     	System.out.print("Estado: ");
     	String estadoEndereco = leitor.nextLine();
     	
@@ -690,23 +703,477 @@ public class Main {
 				writer.write(pessoa.getEndereco().getCidade() + "-");
 				writer.write(pessoa.getEndereco().getEstado() + "\n");
 				writer.close();
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//    	
-//    	Pessoa pessoa = new Pessoa()
     	
     	if (resposta.equalsIgnoreCase("s")) {
     		System.out.println("Qual o seu CNPJ: ");
     		String cnpj = leitor.nextLine();
     		
     		PessoaJuridica fornecedor = new PessoaJuridica(pessoa, cnpj);
-    		// Criar arquivo de Fornecedores.
+    	try {
+    		BufferedWriter writer = new BufferedWriter(new FileWriter("Fornecedor.txt", true));
+			writer.write(pessoa.getId() + "-");
+			writer.write(pessoa.getNome() + "-");
+			writer.write(pessoa.getEmail() + "-");
+			writer.write(pessoa.getTelefone() + "-");
+			writer.write(pessoa.getCelular() + "-");
+			writer.write(pessoa.getEndereco().getRua() + "-");
+			writer.write(pessoa.getEndereco().getCep() + "-");
+			writer.write(pessoa.getEndereco().getBairro() + "-");
+			writer.write(pessoa.getEndereco().getNumero() + "-");
+			writer.write(pessoa.getEndereco().getComplemento() + "-");
+			writer.write(pessoa.getEndereco().getCidade() + "-");
+			writer.write(pessoa.getEndereco().getEstado() + "-");
+			writer.write(fornecedor.getCnpj() + "\n");
+			writer.close();
+    	}catch (IOException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+    	}
+    	else {
+    		System.out.println("Qual o seu CPF: ");
+    		String cpf = leitor.nextLine();
+    		
+    		PessoaFisica cliente = new PessoaFisica(pessoa, cpf);
+    	try {
+    		BufferedWriter writer = new BufferedWriter(new FileWriter("Cliente.txt", true));
+			writer.write(pessoa.getId() + "-");
+			writer.write(pessoa.getNome() + "-");
+			writer.write(pessoa.getEmail() + "-");
+			writer.write(pessoa.getTelefone() + "-");
+			writer.write(pessoa.getCelular() + "-");
+			writer.write(pessoa.getEndereco().getRua() + "-");
+			writer.write(pessoa.getEndereco().getCep() + "-");
+			writer.write(pessoa.getEndereco().getBairro() + "-");
+			writer.write(pessoa.getEndereco().getNumero() + "-");
+			writer.write(pessoa.getEndereco().getComplemento() + "-");
+			writer.write(pessoa.getEndereco().getCidade() + "-");
+			writer.write(pessoa.getEndereco().getEstado() + "-");
+			writer.write(cliente.getCpf() + "\n");
+			writer.close();
+    	}catch (IOException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
     	}
     	
     	leitor.close();
     }
+
+    public static void listarClientes() {
+		System.out.print("=== Todas os clientes serao listados ===\n\n");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				System.out.println(linha);
+		}
+			reader.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+    public static void listarFornecedores() {
+		System.out.print("=== Todas os fornecedores serao listados ===\n\n");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Fornecedor.txt"));
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				System.out.println(linha);
+		}
+			reader.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+
+    public static void alterarClientes() {
+    	Scanner leitor = new Scanner(System.in);
+		
+		System.out.print("Qual o id do cliente que voce deseja modificar: ");
+		int idCliente = Integer.parseInt(leitor.nextLine());
+		
+		System.out.print("Digite o novo nome do cliente: ");
+		String novoNomeCliente = leitor.nextLine();
+		
+		System.out.print("Digite o email do cliente: ");
+		String novoEmailCliente = leitor.nextLine();
+		
+		System.out.print("Digite o novo telefone do cliente:");
+    	String novoTelefonePessoa = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo celular do Cliente: ");
+    	String novoCelularPessoa = leitor.nextLine();
+    	    	
+    	System.out.print("Digite a nova rua do cliente: ");
+    	String novaRuaEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo CEP do cliente: ");
+    	String novoCepEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo bairro do cliente: ");
+    	String novoBairroEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo numero do cliente: ");
+    	String novoNumeroEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo complemento do cliente: ");
+    	String novoComplementoEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite a nova cidade do cliente: ");
+    	String novaCidadeEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo estado do cliente: ");
+    	String novoEstadoEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo CPF do cliente: ");
+    	String novoCPFCliente = leitor.nextLine();
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			
+			ArrayList<Integer> listaDeIds = new ArrayList<Integer>();
+			ArrayList<String> listaDeNomes = new ArrayList<String>();
+			ArrayList<String> listaDeEmails = new ArrayList<String>();
+			ArrayList<String> listaDeTelefones = new ArrayList<String>();
+			ArrayList<String> listaDeCelulares = new ArrayList<String>();
+			ArrayList<String> listaDeRuas = new ArrayList<String>();
+			ArrayList<String> listaDeCeps = new ArrayList<String>();
+			ArrayList<String> listaDeBairros = new ArrayList<String>();
+			ArrayList<String> listaDeNumero = new ArrayList<String>();
+			ArrayList<String> listaDeComplementos = new ArrayList<String>();
+			ArrayList<String> listaDeCidades = new ArrayList<String>();
+			ArrayList<String> listaDeEstados = new ArrayList<String>();
+			ArrayList<String> listaDeCpfs = new ArrayList<String>();
+			
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				String[] corte = linha.split("-");
+				
+				for (int i = 0; i < corte.length; i++) {
+					if (i % 12 == 0 && i != 0) {
+						listaDeIds.add(Integer.parseInt(corte[i-12]));
+						if (idCliente == Integer.parseInt(corte[i-12])) {
+							listaDeNomes.add(novoNomeCliente);
+							listaDeEmails.add(novoEmailCliente);
+							listaDeTelefones.add(novoTelefonePessoa);
+							listaDeCelulares.add(novoCelularPessoa);
+							listaDeRuas.add(novaRuaEndereco);
+							listaDeCeps.add(novoCepEndereco);
+							listaDeBairros.add(novoBairroEndereco);
+							listaDeNumero.add(novoNumeroEndereco);
+							listaDeComplementos.add(novoComplementoEndereco);
+							listaDeCidades.add(novaCidadeEndereco);
+							listaDeEstados.add(novoEstadoEndereco);
+							listaDeCpfs.add(novoCPFCliente);
+						}
+					}
+					else {
+						if (i % 12 == 0) {
+							if (idCliente != Integer.parseInt(corte[i])) {
+								listaDeNomes.add(corte[i+1]);
+								listaDeEmails.add(corte[i+2]);
+								listaDeTelefones.add(corte[i+3]);
+								listaDeCelulares.add(corte[i+4]);
+								listaDeRuas.add(corte[i+5]);
+								listaDeCeps.add(corte[i+6]);
+								listaDeBairros.add(corte[i+7]);
+								listaDeNumero.add(corte[i+8]);
+								listaDeComplementos.add(corte[i+9]);
+								listaDeCidades.add(corte[i+10]);
+								listaDeEstados.add(corte[i+11]);
+								listaDeCpfs.add(corte[i+12]);
+							}
+						}
+						else {
+							System.out.println("VAI DAR MERDA");
+						}
+					}
+				}
+				System.out.println("ids: " + listaDeIds);
+				System.out.println("nomes: " + listaDeNomes);
+				System.out.println("emails: " + listaDeEmails);
+				System.out.println("telefones: " + listaDeTelefones);
+				System.out.println("celulares: " + listaDeCelulares);
+				System.out.println("ruas: " + listaDeRuas);
+				System.out.println("ceps: " + listaDeCeps);
+				System.out.println("bairros: " + listaDeBairros);
+				System.out.println("numeros: " + listaDeNumero);
+				System.out.println("complementos: " + listaDeComplementos);
+				System.out.println("cidades: " + listaDeCidades);
+				System.out.println("estados: " + listaDeEstados);
+				System.out.println("cpfs: " + listaDeCpfs);
+			}
+			reader.close();
+			
+			File file = new File("Cliente.txt");
+			file.delete();
+			
+			int n = listaDeIds.size();
+			System.out.println(n);
+						
+			for (int i = 0; i < n; i++) {
+				
+				Endereco endereco = new Endereco(listaDeRuas.get(i), listaDeCeps.get(i), listaDeBairros.get(i), listaDeNumero.get(i), listaDeComplementos.get(i), listaDeCidades.get(i), listaDeEstados.get(i));
+				
+				Pessoa pessoa = new Pessoa(listaDeIds.get(i), listaDeNomes.get(i), listaDeEmails.get(i), listaDeTelefones.get(i), listaDeCelulares.get(i), endereco);
+				
+				PessoaFisica cliente = new PessoaFisica(pessoa, listaDeCpfs.get(i));
+			
+				BufferedWriter writer = new BufferedWriter(new FileWriter("Cliente.txt", true));
+				writer.write(pessoa.getId() + "-");
+				writer.write(pessoa.getNome() + "-");
+				writer.write(pessoa.getEmail() + "-");
+				writer.write(pessoa.getTelefone() + "-");
+				writer.write(pessoa.getCelular() + "-");
+				writer.write(pessoa.getEndereco().getRua() + "-");
+				writer.write(pessoa.getEndereco().getCep() + "-");
+				writer.write(pessoa.getEndereco().getBairro() + "-");
+				writer.write(pessoa.getEndereco().getNumero() + "-");
+				writer.write(pessoa.getEndereco().getComplemento() + "-");
+				writer.write(pessoa.getEndereco().getCidade() + "-");
+				writer.write(pessoa.getEndereco().getEstado() + "-");
+				writer.write(cliente.getCpf() + "\n");
+				writer.close();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		leitor.close();
+    }
+
+    public static void alterarFornecedores() {
+    	Scanner leitor = new Scanner(System.in);
+		
+		System.out.print("Qual o id do fornecedor que voce deseja modificar: ");
+		int idFornecedor = Integer.parseInt(leitor.nextLine());
+		
+		System.out.print("Digite o novo nome do fornecedor: ");
+		String novoNomeFornecedor = leitor.nextLine();
+		
+		System.out.print("Digite o email do fornecedor: ");
+		String novoEmailFornecedor = leitor.nextLine();
+		
+		System.out.print("Digite o novo telefone do fornecedor:");
+    	String novoTelefonePessoa = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo celular do fornecedor: ");
+    	String novoCelularPessoa = leitor.nextLine();
+    	    	
+    	System.out.print("Digite a nova rua do fornecedor: ");
+    	String novaRuaEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo CEP do fornecedor: ");
+    	String novoCepEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo bairro do fornecedor: ");
+    	String novoBairroEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo numero do fornecedor: ");
+    	String novoNumeroEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo complemento do fornecedor: ");
+    	String novoComplementoEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite a nova cidade do fornecedor: ");
+    	String novaCidadeEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo estado do fornecedor: ");
+    	String novoEstadoEndereco = leitor.nextLine();
+    	
+    	System.out.print("Digite o novo CNPJ do fornecedor: ");
+    	String novoCNPJFornecedor = leitor.nextLine();
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			
+			ArrayList<Integer> listaDeIds = new ArrayList<Integer>();
+			ArrayList<String> listaDeNomes = new ArrayList<String>();
+			ArrayList<String> listaDeEmails = new ArrayList<String>();
+			ArrayList<String> listaDeTelefones = new ArrayList<String>();
+			ArrayList<String> listaDeCelulares = new ArrayList<String>();
+			ArrayList<String> listaDeRuas = new ArrayList<String>();
+			ArrayList<String> listaDeCeps = new ArrayList<String>();
+			ArrayList<String> listaDeBairros = new ArrayList<String>();
+			ArrayList<String> listaDeNumero = new ArrayList<String>();
+			ArrayList<String> listaDeComplementos = new ArrayList<String>();
+			ArrayList<String> listaDeCidades = new ArrayList<String>();
+			ArrayList<String> listaDeEstados = new ArrayList<String>();
+			ArrayList<String> listaDeCnpjs = new ArrayList<String>();
+			
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				String[] corte = linha.split("-");
+				
+				for (int i = 0; i < corte.length; i++) {
+					if (i % 12 == 0 && i != 0) {
+						listaDeIds.add(Integer.parseInt(corte[i-12]));
+						if (idFornecedor == Integer.parseInt(corte[i-12])) {
+							listaDeNomes.add(novoNomeFornecedor);
+							listaDeEmails.add(novoEmailFornecedor);
+							listaDeTelefones.add(novoTelefonePessoa);
+							listaDeCelulares.add(novoCelularPessoa);
+							listaDeRuas.add(novaRuaEndereco);
+							listaDeCeps.add(novoCepEndereco);
+							listaDeBairros.add(novoBairroEndereco);
+							listaDeNumero.add(novoNumeroEndereco);
+							listaDeComplementos.add(novoComplementoEndereco);
+							listaDeCidades.add(novaCidadeEndereco);
+							listaDeEstados.add(novoEstadoEndereco);
+							listaDeCnpjs.add(novoCNPJFornecedor);
+						}
+					}
+					else {
+						if (i % 12 == 0) {
+							if (idFornecedor != Integer.parseInt(corte[i])) {
+								listaDeNomes.add(corte[i+1]);
+								listaDeEmails.add(corte[i+2]);
+								listaDeTelefones.add(corte[i+3]);
+								listaDeCelulares.add(corte[i+4]);
+								listaDeRuas.add(corte[i+5]);
+								listaDeCeps.add(corte[i+6]);
+								listaDeBairros.add(corte[i+7]);
+								listaDeNumero.add(corte[i+8]);
+								listaDeComplementos.add(corte[i+9]);
+								listaDeCidades.add(corte[i+10]);
+								listaDeEstados.add(corte[i+11]);
+								listaDeCnpjs.add(corte[i+12]);
+							}
+						}
+						else {
+							System.out.println("VAI DAR MERDA");
+						}
+					}
+				}
+				System.out.println("ids: " + listaDeIds);
+				System.out.println("nomes: " + listaDeNomes);
+				System.out.println("emails: " + listaDeEmails);
+				System.out.println("telefones: " + listaDeTelefones);
+				System.out.println("celulares: " + listaDeCelulares);
+				System.out.println("ruas: " + listaDeRuas);
+				System.out.println("ceps: " + listaDeCeps);
+				System.out.println("bairros: " + listaDeBairros);
+				System.out.println("numeros: " + listaDeNumero);
+				System.out.println("complementos: " + listaDeComplementos);
+				System.out.println("cidades: " + listaDeCidades);
+				System.out.println("estados: " + listaDeEstados);
+				System.out.println("cnpjs: " + listaDeCnpjs);
+			}
+			reader.close();
+			
+			File file = new File("Fornecedor.txt");
+			file.delete();
+			
+			int n = listaDeIds.size();
+			System.out.println(n);
+						
+			for (int i = 0; i < n; i++) {
+				
+				Endereco endereco = new Endereco(listaDeRuas.get(i), listaDeCeps.get(i), listaDeBairros.get(i), listaDeNumero.get(i), listaDeComplementos.get(i), listaDeCidades.get(i), listaDeEstados.get(i));
+				
+				Pessoa pessoa = new Pessoa(listaDeIds.get(i), listaDeNomes.get(i), listaDeEmails.get(i), listaDeTelefones.get(i), listaDeCelulares.get(i), endereco);
+				
+				PessoaJuridica fornecedor = new PessoaJuridica(pessoa, listaDeCnpjs.get(i));
+			
+				BufferedWriter writer = new BufferedWriter(new FileWriter("Fornecedor.txt", true));
+				writer.write(pessoa.getId() + "-");
+				writer.write(pessoa.getNome() + "-");
+				writer.write(pessoa.getEmail() + "-");
+				writer.write(pessoa.getTelefone() + "-");
+				writer.write(pessoa.getCelular() + "-");
+				writer.write(pessoa.getEndereco().getRua() + "-");
+				writer.write(pessoa.getEndereco().getCep() + "-");
+				writer.write(pessoa.getEndereco().getBairro() + "-");
+				writer.write(pessoa.getEndereco().getNumero() + "-");
+				writer.write(pessoa.getEndereco().getComplemento() + "-");
+				writer.write(pessoa.getEndereco().getCidade() + "-");
+				writer.write(pessoa.getEndereco().getEstado() + "-");
+				writer.write((fornecedor.getCnpj()) + "\n");
+				writer.close();
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		leitor.close();
+    }
+
+    public static void efetuarMovimento() {
+    	Scanner leitor = new Scanner(System.in);
+    	
+    	System.out.print("Voce deseja fazer uma compra? (s/n): ");
+    	String compra = leitor.nextLine();
+    	System.out.println("Lembre-se: Podem realizar compras apenas a partir de fornecedores (abastecer estoque)");
+    	System.out.print("Voce ira adquirir de algum fornecedor? (s/n): ");
+    	String fornecedor = leitor.nextLine();
+    	
+    	if (compra.equalsIgnoreCase("s") && fornecedor.equalsIgnoreCase("s")) {
+    		System.out.println("Compra permitida.");
+    		
+    		System.out.print("Qual a data de hoje: ");
+    		String dataMovimento = leitor.nextLine();
+    		
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Fornecedor.txt"));
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				System.out.println(linha);
+    		}
+    			reader.close();
+    		}catch (IOException e) {
+    			e.printStackTrace();
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		System.out.println();
+    		
+    		System.out.print("Selecione qual o fornecedor (ID): ");
+    		int idFornecedor = Integer.parseInt(leitor.nextLine());
+    		
+    		System.out.print("Selecione o produto: ");
+    		int idProduto = Integer.parseInt(leitor.nextLine());
+    		
+    		System.out.print("Digite a quantidade de itens importada: ");
+    		int quantidadeDeItens = Integer.parseInt(leitor.nextLine());
+    		
+    		System.out.println("Digite o preco unitario: ");
+    		int precoUnitario = Integer.parseInt(leitor.nextLine());
+    		
+    		// Ler os arquivos comparando se existe tudo isso aqui.
+//    		Pessoa pessoa = new Pessoa(idFornecedor, )
+//    		PessoaJuridica fornecedor = new PessoaJuridica(pessoa, cnpj);
+//    		ItemMovimento itemMovimento = new ItemMovimento()
+//    		Movimento movimento = new Movimento(id, data, total, usuario, pessoaJuridica, itemMovimento)
+//    		Compra compra = new Compra(movimento);
+    	}
+    	else {
+    		System.out.println("Compra negada.");
+    		System.out.println("Deseja realizar uma venda?");
+    	}
+    	
+    	leitor.close();
+    }
+
 }

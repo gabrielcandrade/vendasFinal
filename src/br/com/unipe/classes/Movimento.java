@@ -9,17 +9,17 @@ public class Movimento {
 	private Date data;
 	private int total;
 	private Usuario usuario;
-	private Pessoa pessoa;
+	private PessoaJuridica pessoaJuridica;
 	private ItemMovimento itemMovimento;
 	
 	//Constructor
-	public Movimento(int id, Date data, int total, Usuario usuario, Pessoa pessoa, ItemMovimento itemMovimento) {
+	public Movimento(int id, Date data, int total, Usuario usuario, PessoaJuridica pessoaJuridica, ItemMovimento itemMovimento) {
 		super();
 		this.id = id;
 		this.data = data;
 		this.total = total;
 		this.usuario = usuario;
-		this.pessoa = pessoa;
+		this.pessoaJuridica = pessoaJuridica;
 		this.itemMovimento = itemMovimento;
 	}
 	
@@ -55,12 +55,12 @@ public class Movimento {
 		this.usuario = usuario;
 	}
 	
-	public Pessoa getPessoa() {
-		return pessoa;
+	public PessoaJuridica getPessoaJuridica() {
+		return pessoaJuridica;
 	}
 	
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+		this.pessoaJuridica = pessoaJuridica;
 	}
 	
 	public ItemMovimento getItemMovimento() {
