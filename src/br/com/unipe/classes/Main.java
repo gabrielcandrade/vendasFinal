@@ -11,8 +11,13 @@ import java.util.Scanner;
 
 public class Main {
 
+	static Scanner leitor = new Scanner(System.in);
+	
 	public static void main(String[] args) {
+
 		autenticacao();
+		
+		leitor.close();
    }
 	
 // System functions
@@ -22,9 +27,7 @@ public class Main {
     	}		
     }
     
-    public static void menu() {
-        	Scanner leitor = new Scanner(System.in);
-        	
+    public static void menu() {      	
         	System.out.println(" ___________________________________________");
         	System.out.println("|                                           |");
         	System.out.println("|       Selecione a opcao desejada:         |");
@@ -38,7 +41,7 @@ public class Main {
 	      	System.out.println("|                                           |");
 	      	System.out.println("|___________________________________________|");
 	        System.out.print("    Opcao desejada: ");
-	        String validacao = leitor.next();
+	        String validacao = leitor.nextLine();
 	        int opcao = 9;
 	        try{
 	        	opcao = Integer.parseInt(validacao);
@@ -47,8 +50,8 @@ public class Main {
 	        	System.out.println("\n\t\tValor invalido!");
 	        	menu();
 	        }
-          
-	        switch (opcao) {
+	        while(true) {
+	        	switch (opcao) {
 	        	case 0:
 	        		endGame();
 	        		break;
@@ -66,20 +69,18 @@ public class Main {
 		          	break;
 	          	case 4:
 		          	limpaTela();
-		          	// Gerar relatorio
+		          	gerarRelatorioPorCliente();
 		          	break;
 	          	default:
 	          		limpaTela();
 		          	System.out.println("\n\t\tOpcao invalida. ");
 		          	menu();
 		          	break;
+	        	}
 	        }
-	        leitor.close();
         }
 
     public static void menuProdutos() {
-    	Scanner leitor = new Scanner(System.in);
-
     	System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
 		System.out.println("|      Bem vindo ao meno de Produtos        |");
@@ -99,7 +100,7 @@ public class Main {
 		System.out.println("|             0- Voltar                     |");
 		System.out.println("|___________________________________________|");
 		System.out.print("  Opcao desejada:");
-        String validacao = leitor.next();
+        String validacao = leitor.nextLine();
         int opcao = 9;
         try{
         	opcao = Integer.parseInt(validacao);
@@ -111,40 +112,45 @@ public class Main {
 		
 		switch (opcao) {
 		case 0:
+			limpaTela();
 			menu();
 			break;
 		case 1:
 			cadastrarProduto();
+			menu();
 			break;
 		case 2:
 			listarProdutos();
+			menu();
 			break;
 		case 3:
 			alterarProduto();
+			menu();
 			break;
 		case 4:
 			cadastrarCategoria();
+			menu();
 			break;
 		case 5:
 			listarCategoria();
+			menu();
 			break;
 		case 6:
 			alterarCategoria();
+			menu();
 			break;
 		case 7:
 			cadastrarUnidade();
+			menu();
 			break;
 		default:
 			System.out.println("Opcao invalida.");
 			menuProdutos();
 			break;
 		}
-		leitor.close();
     }
     
-    public static void menuPessoa() {
-    	Scanner leitor = new Scanner(System.in);
-    	
+    public static void menuPessoa() {    	
 		System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
 		System.out.println("|      Bem vindo ao menu de Pessoa          |");
@@ -162,7 +168,7 @@ public class Main {
 		System.out.println("|             0- Voltar                     |");
 		System.out.println("|___________________________________________|");
 		System.out.print("  Opcao desejada:");
-        String validacao = leitor.next();
+        String validacao = leitor.nextLine();
         int opcao = 9;
         try{
         	opcao = Integer.parseInt(validacao);
@@ -174,36 +180,38 @@ public class Main {
 		
 		switch (opcao) {
 		case 0:
+			limpaTela();
 			menu();
 			break;
 		case 1:
 			cadastrarPessoa();
+			menu();
 			break;
 		case 2:
 			listarClientes();
+			menu();
 			break;
 		case 3:
 			alterarClientes();
+			menu();
 			break;
 		case 4:
 			listarFornecedores();
+			menu();
 			break;
 		case 5:
 			alterarFornecedores();
+			menu();
 			break;
 		default:
 			System.out.println("Opcao invalida.");
 			menuPessoa();
 			break;
 		}
-		leitor.close();
     }
     
 // Categories functions
-	public static void cadastrarCategoria() {
-		
-		Scanner leitor = new Scanner(System.in);
-		
+	public static void cadastrarCategoria() {		
 		System.out.print("Digite o nome da categoria: ");
 		String nomeCategoria = leitor.nextLine();
 		
@@ -241,14 +249,13 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		leitor.close();
 	}
 	
-	public static void alterarCategoria() {
-		Scanner leitor = new Scanner(System.in);
-		
+	public static void alterarCategoria() {		
 		System.out.print("Qual o id da categoria que voce deseja modificar: ");
 		int idCategoria = Integer.parseInt(leitor.nextLine());
+		
+		
 		
 		System.out.print("Digite o novo nome da Categoria: ");
 		String novoNomeCategoria = leitor.nextLine();
@@ -298,8 +305,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
 	}
 
 	public static void listarCategoria() {
@@ -319,10 +324,7 @@ public class Main {
 	}
 	
 // Unity functions
-	public static void cadastrarUnidade() {
-		
-		Scanner leitor = new Scanner(System.in);
-		
+	public static void cadastrarUnidade() {		
 		System.out.print("Digite o nome da unidade: ");
 		String nomeUnidade = leitor.nextLine();
 		
@@ -360,23 +362,36 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
 	}
 	
 // Products functions
-	public static void cadastrarProduto() {
-		
-		Scanner leitor = new Scanner(System.in);
-		
+	public static void cadastrarProduto() {		
 		System.out.print("Digite o nome do produto: ");
 		String nomeProduto = leitor.nextLine();
 		
 		System.out.print("Digite o preco de venda: ");
-		float precoVendaProduto = Float.parseFloat(leitor.nextLine());
+
+		String validacaoPrecoVendaProduto = leitor.nextLine();
+        float precoVendaProduto = 0;
+        try{
+        	precoVendaProduto = Float.parseFloat(validacaoPrecoVendaProduto);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite a quantidade do estoque: ");
-		int qntDeEstoqueProduto = Integer.parseInt(leitor.nextLine());
+
+		String validacaoQntDeEstoqueProduto = leitor.nextLine();
+        int qntDeEstoqueProduto = 0;
+        try{
+        	qntDeEstoqueProduto = Integer.parseInt(validacaoQntDeEstoqueProduto);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		try {			
 			BufferedReader showerCategoria = new BufferedReader(new FileReader("Categoria.txt"));
@@ -387,7 +402,17 @@ public class Main {
 			showerCategoria.close();
 			
 			System.out.print("Selecione a categoria do produto: ");
-			int idCategoria = Integer.parseInt(leitor.nextLine());
+			
+	        String validacaoIdCategoria = leitor.nextLine();
+	        int idCategoria = 0;
+	        try{
+	        	idCategoria = Integer.parseInt(validacaoIdCategoria);
+	        }catch(Exception e){
+	        	limpaTela();
+	        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+	        	menu();
+	        }
+			
 			String nomeCategoria = "Default";
 			
 			BufferedReader readerCategoria = new BufferedReader(new FileReader("Categoria.txt"));
@@ -416,7 +441,17 @@ public class Main {
 			showerUnidade.close();
 			
 			System.out.print("Selecione a unidade do produto: ");
-			int idUnidade = Integer.parseInt(leitor.nextLine());
+			
+	        String validacaoIdUnidade = leitor.nextLine();
+	        int idUnidade = 0;
+	        try{
+	        	idUnidade = Integer.parseInt(validacaoIdUnidade);
+	        }catch(Exception e){
+	        	limpaTela();
+	        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+	        	menu();
+	        }
+
 			String nomeUnidade = "Default";
 			
 			BufferedReader readerUnidade = new BufferedReader(new FileReader("Unidade.txt"));
@@ -481,9 +516,9 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		leitor.close();
 	}
 	
+	// Todo: Melhorar esta listagem;
 	public static void listarProdutos() {
 		System.out.print("=== Todas os produtos serao listados ===\n\n");
 		try {
@@ -501,8 +536,6 @@ public class Main {
 	}
 	
 	public static void alterarProduto() {
-		Scanner leitor = new Scanner(System.in);
-		
 		System.out.print("Qual o id do produto que voce deseja modificar: ");
 		int idProduto = Integer.parseInt(leitor.nextLine());
 		
@@ -618,14 +651,11 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
 	}
 	
 // Users functions
-	public static void autenticacao() {
-		Scanner leitor = new Scanner(System.in);
-		
+	// Blindado
+	public static void autenticacao() {	
 		System.out.println(" ___________________________________________");
 	    System.out.println("|                                           |");
 	    System.out.println("|                Bem vindo                  |");
@@ -671,13 +701,9 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
 	}
 	
 	public static void cadastrarUsuario() {
-		Scanner leitor = new Scanner(System.in);
-		
 		System.out.print("Digite seu login: ");
 		String login = leitor.nextLine();
 		System.out.print("Digite sua senha: ");
@@ -708,13 +734,10 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
 	}
 
 // Person functions
     public static void cadastrarPessoa() {
-    	Scanner leitor = new Scanner(System.in);
     	Pessoa pessoa = null;
     	
     	System.out.println("=== Dados Pessoais ===\n\n");
@@ -874,8 +897,6 @@ public class Main {
 			e.printStackTrace();
 		}
     	}
-    	
-    	leitor.close();
     }
 
     public static void listarClientes() {
@@ -911,8 +932,6 @@ public class Main {
     }
 
     public static void alterarClientes() {
-    	Scanner leitor = new Scanner(System.in);
-		
 		System.out.print("Qual o id do cliente que voce deseja modificar: ");
 		int idCliente = Integer.parseInt(leitor.nextLine());
 		
@@ -1065,13 +1084,9 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
-    }
+	}
 
     public static void alterarFornecedores() {
-    	Scanner leitor = new Scanner(System.in);
-		
 		System.out.print("Qual o id do fornecedor que voce deseja modificar: ");
 		int idFornecedor = Integer.parseInt(leitor.nextLine());
 		
@@ -1224,14 +1239,10 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		leitor.close();
     }
 
 // Moviments functions    
     public static void efetuarMovimento() {
-    	Scanner leitor = new Scanner(System.in);
-    	
     	System.out.println("Caso voce nao realize uma compra, sera realizado uma venda. \n");
     	System.out.print("Voce deseja fazer uma compra? (s/n): ");
     	String opcaoCompra = leitor.nextLine();
@@ -1788,8 +1799,93 @@ public class Main {
     			e.printStackTrace();
     		}		
     	}
+    }
+    
+    public static void gerarRelatorioPorCliente() {
     	
-    	leitor.close();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			System.out.println("------------------------");
+
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				String[] corte = linha.split("-");
+				for (int i = 0; i < corte.length; i++) {
+					if (i % 12 == 0 && i != 0) {
+						System.out.println("ID: " + corte[i-12]);
+						System.out.println("NOME: " + corte[i-11]);
+						System.out.println("------------------------");
+					}
+				}
+			}
+			reader.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		    	
+    	System.out.println("Selecione o cliente (ID) que voce deseja visualizar o relatorio de compras: ");	
+        String validacao = leitor.nextLine();
+        int idCliente = 0;
+        try{
+        	idCliente = Integer.parseInt(validacao);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tValor invalido!");
+        	menu();
+        }
+    	
+    	String nomeCliente = null;
+    	
+    	// Pegar nome do cliente pelo ID
+    	try {
+			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				String[] corte = linha.split("-");
+				for (int i = 0; i < corte.length; i++) {
+					if (i % 12 == 0 && i != 0) {
+						if (idCliente == Integer.parseInt(corte[i-12])) {
+							nomeCliente = corte[i-11];
+						}
+					}
+				}
+			}
+			reader.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println();
+    	
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("Venda.txt"));
+			System.out.println("------------------------");
+
+			System.out.println("Produtos adquiridos pelo cliente: ");
+			while(reader.ready()) {
+				String linha = reader.readLine();
+				String[] corte = linha.split("-");
+				
+				for (int i = 0; i < corte.length; i++) {
+					if (i % 9 == 0 && i != 0) {
+						if (nomeCliente.equals(corte[i-6])) {
+							System.out.println(" - " + corte[i-4] + "\n");
+						}						
+					}
+				}
+				System.out.println("------------------------");
+			}
+			reader.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		menu();
+		System.out.println();
     }
     
     public static void endGame() {

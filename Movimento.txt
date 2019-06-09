@@ -4,3 +4,5 @@
 3-87456132548-0.0-null-1-Danone-3.65-30-Alimentos-Quilo
 2-86532-0.0-null-1-Danone-3.65-30-Alimentos-Quilo
 2-846513-0.0-pedro-1-Danone-3.65-30-Alimentos-Quilo
+2-89798-234.5-gir18-2-Claudio-50.0-70-Alimentos-Quilo
+3-85614-30.0-gir18-1-Danone-3.65-20-Alimentos-Quilo
