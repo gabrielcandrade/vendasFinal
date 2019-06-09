@@ -154,7 +154,7 @@ public class Main {
     }
     
     // Done
-    public static void menuPessoa() {    	
+    public static void menuPessoa() {
 		System.out.println(" ___________________________________________");
 		System.out.println("|                                           |");
 		System.out.println("|      Bem vindo ao menu de Pessoa          |");
@@ -2486,7 +2486,7 @@ public class Main {
         String validacao = leitor.nextLine();
         int idCliente = 0;
         try{
-        	idCliente = Integer.parseInt(validacao);
+        	idCliente = Integer.parseUnsignedInt(validacao);
         }catch(Exception e){
         	limpaTela();
         	System.out.println("\n\t\tValor invalido!");
@@ -2549,5 +2549,4 @@ public class Main {
     	while(true) {
     	}
     }
-
 }
