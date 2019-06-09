@@ -267,7 +267,19 @@ public class Main {
         }
 		
 		System.out.print("Digite o novo nome da Categoria: ");
-		String novoNomeCategoria = leitor.nextLine();
+//		String novoNomeCategoria = leitor.nextLine();
+		
+        String validacaoNovoNomeCategoria = leitor.nextLine();
+        String novoNomeCategoria = null;
+    	String[] procuraTraco = validacaoNovoNomeCategoria.split("-");
+    	if (procuraTraco.length != 1){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um caractere proibido! Retorne ao menu!");
+        	menu();
+    	}
+    	else {
+    		novoNomeCategoria = leitor.nextLine();
+    	}
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("Categoria.txt"));
