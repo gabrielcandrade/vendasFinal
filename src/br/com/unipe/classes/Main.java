@@ -1152,14 +1152,28 @@ public class Main {
     		System.out.print("Selecione qual o fornecedor (ID): ");
     		int idFornecedor = Integer.parseInt(leitor.nextLine());
     		
-    		System.out.print("Selecione o produto: ");
+    		try {
+    			BufferedReader reader = new BufferedReader(new FileReader("Produto.txt"));
+    			while(reader.ready()) {
+    				String linha = reader.readLine();
+    				System.out.println(linha);
+    		}
+    			reader.close();
+    		}catch (IOException e) {
+    			e.printStackTrace();
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		System.out.println();
+    		
+    		System.out.print("Selecione o produto (ID): ");
     		int idProduto = Integer.parseInt(leitor.nextLine());
     		
     		System.out.print("Digite a quantidade de itens importada: ");
     		int quantidadeDeItens = Integer.parseInt(leitor.nextLine());
     		
     		System.out.println("Digite o preco unitario: ");
-    		int precoUnitario = Integer.parseInt(leitor.nextLine());
+    		float precoUnitario = Float.parseFloat(leitor.nextLine());
     		
     		// Ler os arquivos comparando se existe tudo isso aqui.
 //    		Pessoa pessoa = new Pessoa(idFornecedor, )
