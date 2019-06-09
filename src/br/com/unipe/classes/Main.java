@@ -2276,9 +2276,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Cliente Inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Cliente Inexistente!");
     		}
     		
     		try {
