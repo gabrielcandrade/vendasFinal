@@ -1,5 +1,5 @@
 ### Funcionalidades
-####Controle de Compra e Venda
+#### Controle de Compra e Venda
 
 - Autenticação no sistema através de nome de usuário e senha;
 - Cadastro de produtos (listagem, adição e remoção);
@@ -13,6 +13,6 @@
 
 
 
-#####Contribuidores:
-#####[Gabriel de Carvalho Andrade](https://github.com/gabrielcandrade)
-#####[Claudio Bessa Montenegro](https://github.com/claudiobmontenegro)
+##### Contribuidores:
+##### [Gabriel de Carvalho Andrade](https://github.com/gabrielcandrade)
+##### [Claudio Bessa Montenegro](https://github.com/claudiobmontenegro)
