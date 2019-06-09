@@ -2218,7 +2218,6 @@ public class Main {
     		System.out.println();
     		
     		System.out.print("Para qual cliente (ID) voce deseja vender: ");
-//    		int idCliente = Integer.parseUnsignedInt(leitor.nextLine());
     		
             String validacao = leitor.nextLine();
             int idCliente = 0;
@@ -2535,9 +2534,9 @@ public class Main {
 			}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Usuario inexistente!");
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Usuario inexistente!");
 		}
 		menu();
 		System.out.println();
