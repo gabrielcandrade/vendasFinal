@@ -27,7 +27,7 @@ public class Main {
     	}		
     }
     
-    public static void menu() {      	
+    public static void menu() {
         	System.out.println(" ___________________________________________");
         	System.out.println("|                                           |");
         	System.out.println("|       Selecione a opcao desejada:         |");
@@ -251,11 +251,20 @@ public class Main {
 		}
 	}
 	
-	public static void alterarCategoria() {		
+	public static void alterarCategoria() {
+		listarCategoria();
+		
 		System.out.print("Qual o id da categoria que voce deseja modificar: ");
-		int idCategoria = Integer.parseInt(leitor.nextLine());
 		
-		
+        String validacaoIdCategoria = leitor.nextLine();
+        int idCategoria = 0;
+        try{
+        	idCategoria = Integer.parseInt(validacaoIdCategoria);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite o novo nome da Categoria: ");
 		String novoNomeCategoria = leitor.nextLine();
@@ -307,6 +316,7 @@ public class Main {
 		}
 	}
 
+	// Todo: Melhorar essa listagem
 	public static void listarCategoria() {
 		System.out.print("=== Todas as categorias serao listadas ===\n\n");
 		try {
@@ -393,7 +403,7 @@ public class Main {
         	menu();
         }
 		
-		try {			
+		try {
 			BufferedReader showerCategoria = new BufferedReader(new FileReader("Categoria.txt"));
 			while(showerCategoria.ready()) {
 				String linha = showerCategoria.readLine();
@@ -537,16 +547,46 @@ public class Main {
 	
 	public static void alterarProduto() {
 		System.out.print("Qual o id do produto que voce deseja modificar: ");
-		int idProduto = Integer.parseInt(leitor.nextLine());
+//		int idProduto = Integer.parseInt(leitor.nextLine());
+		
+        String validacaoIdProduto = leitor.nextLine();
+        int idProduto = 0;
+        try{
+        	idProduto = Integer.parseInt(validacaoIdProduto);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite o novo nome do produto: ");
 		String novoNomeProduto = leitor.nextLine();
 		
 		System.out.print("Digite o novo preco de venda do produto: ");
-		float novoPrecoVendaProduto = Float.parseFloat(leitor.nextLine());
+//		float novoPrecoVendaProduto = Float.parseFloat(leitor.nextLine());
+		
+        String validacaoNovoPrecoVendaProduto = leitor.nextLine();
+        float novoPrecoVendaProduto = 0;
+        try{
+        	novoPrecoVendaProduto = Float.parseFloat(validacaoNovoPrecoVendaProduto);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		System.out.print("Digite a nova quantidade de estoque do produto: ");
-		int novaQntDeEstoqueProduto = Integer.parseInt(leitor.nextLine());
+//		int novaQntDeEstoqueProduto = Integer.parseInt(leitor.nextLine());
+		
+        String validacaoNovaQntDeEstoqueProduto = leitor.nextLine();
+        int novaQntDeEstoqueProduto = 0;
+        try{
+        	novaQntDeEstoqueProduto = Integer.parseInt(validacaoNovaQntDeEstoqueProduto);
+        }catch(Exception e){
+        	limpaTela();
+        	System.out.println("\n\t\tVoce entrou com um valor incoerente! Retorne ao menu!");
+        	menu();
+        }
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("Produto.txt"));
