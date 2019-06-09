@@ -36,6 +36,8 @@ public class Main {
 	      	System.out.println("|           3- Movimento                    |");
 	      	System.out.println("|           4- Relatorio do cliente         |");
 	      	System.out.println("|                                           |");
+	      	System.out.println("|           0- Sair do sistema!             |");
+	      	System.out.println("|                                           |");
 	      	System.out.println("|___________________________________________|");
 	        System.out.print("    Opcao desejada: ");
 	        String validacao = leitor.next();
@@ -49,6 +51,9 @@ public class Main {
 	        }
           
 	        switch (opcao) {
+	        	case 0:
+	        		endGame();
+	        		break;
 	          	case 1:
 		          	limpaTela();
 		          	menuProdutos();
@@ -92,6 +97,8 @@ public class Main {
 		System.out.println("|             6- Alterar Categoria          |");
 		System.out.println("|                                           |");
 		System.out.println("|             7- Adicionar Unidade          |");
+		System.out.println("|                                           |");
+		System.out.println("|             0- Voltar                     |");
 		System.out.println("|___________________________________________|");
 		System.out.print("  Opcao desejada:");
         String validacao = leitor.next();
@@ -105,6 +112,9 @@ public class Main {
         }
 		
 		switch (opcao) {
+		case 0:
+			menu();
+			break;
 		case 1:
 			cadastrarProduto();
 			break;
@@ -128,7 +138,7 @@ public class Main {
 			break;
 		default:
 			System.out.println("Opcao invalida.");
-			menu();
+			menuProdutos();
 			break;
 		}
 		leitor.close();
@@ -150,6 +160,8 @@ public class Main {
 		System.out.println("|                                           |");
 		System.out.println("|             4- Listar Fornecedor          |");
 		System.out.println("|             5- Alterar Fornecedor         |");
+		System.out.println("|                                           |");
+		System.out.println("|             0- Voltar                     |");
 		System.out.println("|___________________________________________|");
 		System.out.print("  Opcao desejada:");
         String validacao = leitor.next();
@@ -163,6 +175,9 @@ public class Main {
         }
 		
 		switch (opcao) {
+		case 0:
+			menu();
+			break;
 		case 1:
 			cadastrarPessoa();
 			break;
@@ -180,7 +195,7 @@ public class Main {
 			break;
 		default:
 			System.out.println("Opcao invalida.");
-			menu();
+			menuPessoa();
 			break;
 		}
 		leitor.close();
@@ -650,7 +665,8 @@ public class Main {
 				autenticacao();
 			}
 			else {
-				System.out.println("Usuario.txt nao existe com os usuarios cadastrados!");
+				System.out.println("Usuario.txt nao existe!");
+				autenticacao();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -1776,6 +1792,11 @@ public class Main {
     	}
     	
     	leitor.close();
+    }
+    
+    public static void endGame() {
+    	while(true) {
+    	}
     }
 
 }
