@@ -2504,9 +2504,9 @@ public class Main {
 			}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}
 		System.out.println();
     	
