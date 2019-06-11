@@ -2349,9 +2349,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Produto inexistente!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Produto inexistente!");
     		}
     		
     		Endereco endereco = new Endereco(ruaCliente, cepCliente, bairroCliente, numeroCliente, complementoCliente, cidadeCliente, estadoCliente);
