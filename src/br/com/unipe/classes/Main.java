@@ -356,9 +356,9 @@ public class Main {
 		}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Categoria.txt nao existe!");
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Categoria.txt nao existe!");
 		}
 	}
 	
@@ -418,7 +418,6 @@ public class Main {
 // Products functions
 	public static void cadastrarProduto() {		
 		System.out.print("Digite o nome do produto: ");
-//		String nomeProduto = leitor.nextLine();
 		
         String validacaoNomeProduto = leitor.nextLine();
         String nomeProduto = null;
@@ -575,9 +574,9 @@ public class Main {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt, ou Categoria.txt, ou Unidade.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt, ou Categoria.txt, ou Unidade.txt nao existe!");
 		}
 	}
 	
@@ -748,9 +747,9 @@ public class Main {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt, ou Categoria.txt, ou Unidade.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt, ou Categoria.txt, ou Unidade.txt nao existe!");
 		}
 	}
 	
@@ -1217,9 +1216,9 @@ public class Main {
 		}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}
     }
     
@@ -1233,9 +1232,9 @@ public class Main {
 		}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Fornecedor.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Fornecedor.txt nao existe!");
 		}
     }
 
@@ -1513,9 +1512,9 @@ public class Main {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}
 	}
 
@@ -1713,7 +1712,7 @@ public class Main {
     	}
     	
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("Cliente.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("Fornecedor.txt"));
 			
 			ArrayList<Integer> listaDeIds = new ArrayList<Integer>();
 			ArrayList<String> listaDeNomes = new ArrayList<String>();
@@ -1769,7 +1768,7 @@ public class Main {
 							}
 						}
 						else {
-							System.out.println("VAI DAR MERDA");
+							System.out.println("Easter egg! - Vai quebrar nao!");
 						}
 					}
 				}
@@ -1818,9 +1817,9 @@ public class Main {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Fornecedor.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Fornecedor.txt nao existe!");
 		}
     }
 
@@ -1842,9 +1841,9 @@ public class Main {
     		}
     			reader.close();
     		}catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor.txt nao existe!");
     		}catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Fornecedor.txt nao existe!");
     		}
     		System.out.println();
     		
@@ -1960,9 +1959,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			System.out.println("Fornecedor inexistente!");
+    			System.out.println("Fornecedor.txt inexistente!");
     		} catch (Exception e) {
-    			System.out.println("Fornecedor inexistente!");
+    			System.out.println("Fornecedor.txt inexistente!");
     		}
     		
     		// Pegando produto pelo ID
@@ -2159,9 +2158,9 @@ public class Main {
     		}
     			reader.close();
     		}catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Compra.txt nao existe!");
     		}catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Compra.txt nao existe!");
     		}
     		System.out.println();
     		
@@ -2178,7 +2177,6 @@ public class Main {
             }
     		
     		System.out.print("Qual a data de hoje: ");
-//    		String dataMovimento = leitor.nextLine();
     		
             String validacaoDataMovimento = leitor.nextLine();
             String dataMovimento = null;
@@ -2209,9 +2207,9 @@ public class Main {
     		}
     			reader.close();
     		}catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Compra.txt ou Cliente.txt nao existe!");
     		}catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Compra.txt ou Cliente.txt nao existe!");
     		}
     		System.out.println();
     		
@@ -2326,9 +2324,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			System.out.println("Categoria inexistente!");
+    			System.out.println("Categoria.txt inexistente!");
     		} catch (Exception e) {
-    			System.out.println("Categoria inexistente!");
+    			System.out.println("Categoria.txt inexistente!");
     		}
     		
     		// Pegando unidade pelo nome
@@ -2349,9 +2347,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			System.out.println("Produto inexistente!");
+    			System.out.println("Produto.txt inexistente!");
     		} catch (Exception e) {
-    			System.out.println("Produto inexistente!");
+    			System.out.println("Produto.txt inexistente!");
     		}
     		
     		Endereco endereco = new Endereco(ruaCliente, cepCliente, bairroCliente, numeroCliente, complementoCliente, cidadeCliente, estadoCliente);
@@ -2469,9 +2467,9 @@ public class Main {
 			}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Cliente.txt nao existe!");
 		}
 		    	
     	System.out.println("Selecione o cliente (ID) que voce deseja visualizar o relatorio de compras: ");	
