@@ -338,9 +338,9 @@ public class Main {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Categoria.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Categoria.txt nao existe!");
 		}
 	}
 
@@ -591,9 +591,9 @@ public class Main {
 		}
 			reader.close();
 		}catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt nao existe!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Produto.txt nao existe!");
 		}
 	}
 	
@@ -1867,9 +1867,9 @@ public class Main {
     		}
     			reader.close();
     		}catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		}catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		}
     		System.out.println();
     		
@@ -1987,9 +1987,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		}
     		
     		// Pegando categoria pelo nome
@@ -2301,9 +2301,9 @@ public class Main {
     			}
     			reader.close();    			
     		} catch (IOException e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		} catch (Exception e) {
-    			e.printStackTrace();
+    			System.out.println("Produto.txt nao existe!");
     		}
     		
     		// Pegando categoria pelo nome
