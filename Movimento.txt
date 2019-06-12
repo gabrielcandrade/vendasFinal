@@ -1,8 +1,2 @@
-1-879465123-686.0-gir18-1-Danone-3.65-70-Alimentos-Quilo
-2-865123-175.0-gir18-2-Claudio-50.0-70-Alimentos-Quilo
-3-87456123-500.0-gir18-2-Claudio-50.0-10-Alimentos-Quilo
-3-87456132548-0.0-null-1-Danone-3.65-30-Alimentos-Quilo
-2-86532-0.0-null-1-Danone-3.65-30-Alimentos-Quilo
-2-846513-0.0-pedro-1-Danone-3.65-30-Alimentos-Quilo
-2-89798-234.5-gir18-2-Claudio-50.0-70-Alimentos-Quilo
-3-85614-30.0-gir18-1-Danone-3.65-20-Alimentos-Quilo
+1-12/54/9658-195.36-Claudio-1-Pessego-3.45-60-Alimentos-Quilo
+2-85/65/8778-0.0-Gabriel-1-Pessego-3.45-50-Alimentos-Quilo
